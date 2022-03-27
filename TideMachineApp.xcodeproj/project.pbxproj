@@ -1,0 +1,584 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3B87D94A27F0C7F1005AC588 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B87D94927F0C7F1005AC588 /* AppDelegate.swift */; };
+		3B87D94C27F0C7F1005AC588 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B87D94B27F0C7F1005AC588 /* ViewController.swift */; };
+		3B87D94E27F0C7F3005AC588 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B87D94D27F0C7F3005AC588 /* Assets.xcassets */; };
+		3B87D95127F0C7F3005AC588 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B87D94F27F0C7F3005AC588 /* Main.storyboard */; };
+		3B87D95C27F0C7F3005AC588 /* TideMachineAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B87D95B27F0C7F3005AC588 /* TideMachineAppTests.swift */; };
+		3B87D96627F0C7F3005AC588 /* TideMachineAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B87D96527F0C7F3005AC588 /* TideMachineAppUITests.swift */; };
+		3B87D96827F0C7F3005AC588 /* TideMachineAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B87D96727F0C7F3005AC588 /* TideMachineAppUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3B87D95827F0C7F3005AC588 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3B87D93E27F0C7F1005AC588 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3B87D94527F0C7F1005AC588;
+			remoteInfo = TideMachineApp;
+		};
+		3B87D96227F0C7F3005AC588 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3B87D93E27F0C7F1005AC588 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3B87D94527F0C7F1005AC588;
+			remoteInfo = TideMachineApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3B87D94627F0C7F1005AC588 /* TideMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TideMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B87D94927F0C7F1005AC588 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3B87D94B27F0C7F1005AC588 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3B87D94D27F0C7F3005AC588 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3B87D95027F0C7F3005AC588 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3B87D95227F0C7F3005AC588 /* TideMachineApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TideMachineApp.entitlements; sourceTree = "<group>"; };
+		3B87D95727F0C7F3005AC588 /* TideMachineAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TideMachineAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B87D95B27F0C7F3005AC588 /* TideMachineAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TideMachineAppTests.swift; sourceTree = "<group>"; };
+		3B87D96127F0C7F3005AC588 /* TideMachineAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TideMachineAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B87D96527F0C7F3005AC588 /* TideMachineAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TideMachineAppUITests.swift; sourceTree = "<group>"; };
+		3B87D96727F0C7F3005AC588 /* TideMachineAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TideMachineAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3B87D94327F0C7F1005AC588 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B87D95427F0C7F3005AC588 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B87D95E27F0C7F3005AC588 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3B87D93D27F0C7F1005AC588 = {
+			isa = PBXGroup;
+			children = (
+				3B87D94827F0C7F1005AC588 /* TideMachineApp */,
+				3B87D95A27F0C7F3005AC588 /* TideMachineAppTests */,
+				3B87D96427F0C7F3005AC588 /* TideMachineAppUITests */,
+				3B87D94727F0C7F1005AC588 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3B87D94727F0C7F1005AC588 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3B87D94627F0C7F1005AC588 /* TideMachineApp.app */,
+				3B87D95727F0C7F3005AC588 /* TideMachineAppTests.xctest */,
+				3B87D96127F0C7F3005AC588 /* TideMachineAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3B87D94827F0C7F1005AC588 /* TideMachineApp */ = {
+			isa = PBXGroup;
+			children = (
+				3B87D94927F0C7F1005AC588 /* AppDelegate.swift */,
+				3B87D94B27F0C7F1005AC588 /* ViewController.swift */,
+				3B87D94D27F0C7F3005AC588 /* Assets.xcassets */,
+				3B87D94F27F0C7F3005AC588 /* Main.storyboard */,
+				3B87D95227F0C7F3005AC588 /* TideMachineApp.entitlements */,
+			);
+			path = TideMachineApp;
+			sourceTree = "<group>";
+		};
+		3B87D95A27F0C7F3005AC588 /* TideMachineAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				3B87D95B27F0C7F3005AC588 /* TideMachineAppTests.swift */,
+			);
+			path = TideMachineAppTests;
+			sourceTree = "<group>";
+		};
+		3B87D96427F0C7F3005AC588 /* TideMachineAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3B87D96527F0C7F3005AC588 /* TideMachineAppUITests.swift */,
+				3B87D96727F0C7F3005AC588 /* TideMachineAppUITestsLaunchTests.swift */,
+			);
+			path = TideMachineAppUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3B87D94527F0C7F1005AC588 /* TideMachineApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B87D96B27F0C7F3005AC588 /* Build configuration list for PBXNativeTarget "TideMachineApp" */;
+			buildPhases = (
+				3B87D94227F0C7F1005AC588 /* Sources */,
+				3B87D94327F0C7F1005AC588 /* Frameworks */,
+				3B87D94427F0C7F1005AC588 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TideMachineApp;
+			productName = TideMachineApp;
+			productReference = 3B87D94627F0C7F1005AC588 /* TideMachineApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3B87D95627F0C7F3005AC588 /* TideMachineAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B87D96E27F0C7F3005AC588 /* Build configuration list for PBXNativeTarget "TideMachineAppTests" */;
+			buildPhases = (
+				3B87D95327F0C7F3005AC588 /* Sources */,
+				3B87D95427F0C7F3005AC588 /* Frameworks */,
+				3B87D95527F0C7F3005AC588 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3B87D95927F0C7F3005AC588 /* PBXTargetDependency */,
+			);
+			name = TideMachineAppTests;
+			productName = TideMachineAppTests;
+			productReference = 3B87D95727F0C7F3005AC588 /* TideMachineAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3B87D96027F0C7F3005AC588 /* TideMachineAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B87D97127F0C7F3005AC588 /* Build configuration list for PBXNativeTarget "TideMachineAppUITests" */;
+			buildPhases = (
+				3B87D95D27F0C7F3005AC588 /* Sources */,
+				3B87D95E27F0C7F3005AC588 /* Frameworks */,
+				3B87D95F27F0C7F3005AC588 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3B87D96327F0C7F3005AC588 /* PBXTargetDependency */,
+			);
+			name = TideMachineAppUITests;
+			productName = TideMachineAppUITests;
+			productReference = 3B87D96127F0C7F3005AC588 /* TideMachineAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3B87D93E27F0C7F1005AC588 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1330;
+				LastUpgradeCheck = 1330;
+				TargetAttributes = {
+					3B87D94527F0C7F1005AC588 = {
+						CreatedOnToolsVersion = 13.3;
+					};
+					3B87D95627F0C7F3005AC588 = {
+						CreatedOnToolsVersion = 13.3;
+						TestTargetID = 3B87D94527F0C7F1005AC588;
+					};
+					3B87D96027F0C7F3005AC588 = {
+						CreatedOnToolsVersion = 13.3;
+						TestTargetID = 3B87D94527F0C7F1005AC588;
+					};
+				};
+			};
+			buildConfigurationList = 3B87D94127F0C7F1005AC588 /* Build configuration list for PBXProject "TideMachineApp" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3B87D93D27F0C7F1005AC588;
+			productRefGroup = 3B87D94727F0C7F1005AC588 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3B87D94527F0C7F1005AC588 /* TideMachineApp */,
+				3B87D95627F0C7F3005AC588 /* TideMachineAppTests */,
+				3B87D96027F0C7F3005AC588 /* TideMachineAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3B87D94427F0C7F1005AC588 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B87D94E27F0C7F3005AC588 /* Assets.xcassets in Resources */,
+				3B87D95127F0C7F3005AC588 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B87D95527F0C7F3005AC588 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B87D95F27F0C7F3005AC588 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3B87D94227F0C7F1005AC588 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B87D94C27F0C7F1005AC588 /* ViewController.swift in Sources */,
+				3B87D94A27F0C7F1005AC588 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B87D95327F0C7F3005AC588 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B87D95C27F0C7F3005AC588 /* TideMachineAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B87D95D27F0C7F3005AC588 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B87D96827F0C7F3005AC588 /* TideMachineAppUITestsLaunchTests.swift in Sources */,
+				3B87D96627F0C7F3005AC588 /* TideMachineAppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3B87D95927F0C7F3005AC588 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3B87D94527F0C7F1005AC588 /* TideMachineApp */;
+			targetProxy = 3B87D95827F0C7F3005AC588 /* PBXContainerItemProxy */;
+		};
+		3B87D96327F0C7F3005AC588 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3B87D94527F0C7F1005AC588 /* TideMachineApp */;
+			targetProxy = 3B87D96227F0C7F3005AC588 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3B87D94F27F0C7F3005AC588 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3B87D95027F0C7F3005AC588 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3B87D96927F0C7F3005AC588 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3B87D96A27F0C7F3005AC588 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		3B87D96C27F0C7F3005AC588 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TideMachineApp/TideMachineApp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8XS2V4WB4D;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = lian.land.TideMachineApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		3B87D96D27F0C7F3005AC588 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TideMachineApp/TideMachineApp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8XS2V4WB4D;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = lian.land.TideMachineApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		3B87D96F27F0C7F3005AC588 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8XS2V4WB4D;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = lian.land.TideMachineAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TideMachineApp.app/Contents/MacOS/TideMachineApp";
+			};
+			name = Debug;
+		};
+		3B87D97027F0C7F3005AC588 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8XS2V4WB4D;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = lian.land.TideMachineAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TideMachineApp.app/Contents/MacOS/TideMachineApp";
+			};
+			name = Release;
+		};
+		3B87D97227F0C7F3005AC588 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8XS2V4WB4D;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = lian.land.TideMachineAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = TideMachineApp;
+			};
+			name = Debug;
+		};
+		3B87D97327F0C7F3005AC588 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8XS2V4WB4D;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = lian.land.TideMachineAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = TideMachineApp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3B87D94127F0C7F1005AC588 /* Build configuration list for PBXProject "TideMachineApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B87D96927F0C7F3005AC588 /* Debug */,
+				3B87D96A27F0C7F3005AC588 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3B87D96B27F0C7F3005AC588 /* Build configuration list for PBXNativeTarget "TideMachineApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B87D96C27F0C7F3005AC588 /* Debug */,
+				3B87D96D27F0C7F3005AC588 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3B87D96E27F0C7F3005AC588 /* Build configuration list for PBXNativeTarget "TideMachineAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B87D96F27F0C7F3005AC588 /* Debug */,
+				3B87D97027F0C7F3005AC588 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3B87D97127F0C7F3005AC588 /* Build configuration list for PBXNativeTarget "TideMachineAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B87D97227F0C7F3005AC588 /* Debug */,
+				3B87D97327F0C7F3005AC588 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3B87D93E27F0C7F1005AC588 /* Project object */;
+}
