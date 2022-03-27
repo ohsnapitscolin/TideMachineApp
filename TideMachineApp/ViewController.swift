@@ -6,13 +6,15 @@
 //
 
 import Cocoa
+import ScreenSaver
 
 class ViewController: NSViewController {
 
+    private var saver: ScreenSaverView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        addScreensaver()
     }
 
     override var representedObject: Any? {
@@ -20,7 +22,12 @@ class ViewController: NSViewController {
         // Update the view, if already loaded.
         }
     }
-
-
+    
+    private func addScreensaver() {
+        if let saver = TideMachineView(frame: view.frame, isPreview: false) {
+            view.addSubview(saver)
+            self.saver = saver
+        }
+    }
 }
 

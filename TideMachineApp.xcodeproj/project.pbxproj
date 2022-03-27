@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B2A52D427F0EC150081A752 /* TideMachineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A52D327F0EC150081A752 /* TideMachineView.swift */; };
+		3B2A52D527F0EC150081A752 /* TideMachineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A52D327F0EC150081A752 /* TideMachineView.swift */; };
+		3B2A52D727F0EF8F0081A752 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A52D627F0EF8F0081A752 /* Gradient.swift */; };
+		3B2A52D827F0EF8F0081A752 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A52D627F0EF8F0081A752 /* Gradient.swift */; };
+		3B2A52DA27F0EFA50081A752 /* BackgroundGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A52D927F0EFA50081A752 /* BackgroundGradient.swift */; };
+		3B2A52DB27F0EFA50081A752 /* BackgroundGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A52D927F0EFA50081A752 /* BackgroundGradient.swift */; };
+		3B2A52DD27F0EFC20081A752 /* TideGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A52DC27F0EFC20081A752 /* TideGradient.swift */; };
+		3B2A52DE27F0EFC20081A752 /* TideGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A52DC27F0EFC20081A752 /* TideGradient.swift */; };
 		3B87D94A27F0C7F1005AC588 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B87D94927F0C7F1005AC588 /* AppDelegate.swift */; };
 		3B87D94C27F0C7F1005AC588 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B87D94B27F0C7F1005AC588 /* ViewController.swift */; };
 		3B87D94E27F0C7F3005AC588 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B87D94D27F0C7F3005AC588 /* Assets.xcassets */; };
@@ -34,6 +42,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B2A52CA27F0EBE40081A752 /* TideMachine.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TideMachine.saver; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B2A52D327F0EC150081A752 /* TideMachineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TideMachineView.swift; sourceTree = "<group>"; };
+		3B2A52D627F0EF8F0081A752 /* Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
+		3B2A52D927F0EFA50081A752 /* BackgroundGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundGradient.swift; sourceTree = "<group>"; };
+		3B2A52DC27F0EFC20081A752 /* TideGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TideGradient.swift; sourceTree = "<group>"; };
 		3B87D94627F0C7F1005AC588 /* TideMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TideMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B87D94927F0C7F1005AC588 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B87D94B27F0C7F1005AC588 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -48,6 +61,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3B2A52C727F0EBE40081A752 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3B87D94327F0C7F1005AC588 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -72,13 +92,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B2A52CB27F0EBE40081A752 /* TideMachine */ = {
+			isa = PBXGroup;
+			children = (
+				3B2A52D327F0EC150081A752 /* TideMachineView.swift */,
+				3B2A52D627F0EF8F0081A752 /* Gradient.swift */,
+				3B2A52D927F0EFA50081A752 /* BackgroundGradient.swift */,
+				3B2A52DC27F0EFC20081A752 /* TideGradient.swift */,
+			);
+			path = TideMachine;
+			sourceTree = "<group>";
+		};
 		3B87D93D27F0C7F1005AC588 = {
 			isa = PBXGroup;
 			children = (
 				3B87D94827F0C7F1005AC588 /* TideMachineApp */,
 				3B87D95A27F0C7F3005AC588 /* TideMachineAppTests */,
 				3B87D96427F0C7F3005AC588 /* TideMachineAppUITests */,
+				3B2A52CB27F0EBE40081A752 /* TideMachine */,
 				3B87D94727F0C7F1005AC588 /* Products */,
+				3B87D99A27F0CBA7005AC588 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -88,6 +121,7 @@
 				3B87D94627F0C7F1005AC588 /* TideMachineApp.app */,
 				3B87D95727F0C7F3005AC588 /* TideMachineAppTests.xctest */,
 				3B87D96127F0C7F3005AC588 /* TideMachineAppUITests.xctest */,
+				3B2A52CA27F0EBE40081A752 /* TideMachine.saver */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -121,9 +155,44 @@
 			path = TideMachineAppUITests;
 			sourceTree = "<group>";
 		};
+		3B87D99A27F0CBA7005AC588 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		3B2A52C527F0EBE40081A752 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		3B2A52C927F0EBE40081A752 /* TideMachine */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B2A52D027F0EBE40081A752 /* Build configuration list for PBXNativeTarget "TideMachine" */;
+			buildPhases = (
+				3B2A52C527F0EBE40081A752 /* Headers */,
+				3B2A52C627F0EBE40081A752 /* Sources */,
+				3B2A52C727F0EBE40081A752 /* Frameworks */,
+				3B2A52C827F0EBE40081A752 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TideMachine;
+			productName = TideMachine;
+			productReference = 3B2A52CA27F0EBE40081A752 /* TideMachine.saver */;
+			productType = "com.apple.product-type.bundle";
+		};
 		3B87D94527F0C7F1005AC588 /* TideMachineApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3B87D96B27F0C7F3005AC588 /* Build configuration list for PBXNativeTarget "TideMachineApp" */;
@@ -187,6 +256,10 @@
 				LastSwiftUpdateCheck = 1330;
 				LastUpgradeCheck = 1330;
 				TargetAttributes = {
+					3B2A52C927F0EBE40081A752 = {
+						CreatedOnToolsVersion = 13.3;
+						LastSwiftMigration = 1330;
+					};
 					3B87D94527F0C7F1005AC588 = {
 						CreatedOnToolsVersion = 13.3;
 					};
@@ -216,11 +289,19 @@
 				3B87D94527F0C7F1005AC588 /* TideMachineApp */,
 				3B87D95627F0C7F3005AC588 /* TideMachineAppTests */,
 				3B87D96027F0C7F3005AC588 /* TideMachineAppUITests */,
+				3B2A52C927F0EBE40081A752 /* TideMachine */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3B2A52C827F0EBE40081A752 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3B87D94427F0C7F1005AC588 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -247,12 +328,27 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3B2A52C627F0EBE40081A752 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B2A52D527F0EC150081A752 /* TideMachineView.swift in Sources */,
+				3B2A52DE27F0EFC20081A752 /* TideGradient.swift in Sources */,
+				3B2A52D827F0EF8F0081A752 /* Gradient.swift in Sources */,
+				3B2A52DB27F0EFA50081A752 /* BackgroundGradient.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3B87D94227F0C7F1005AC588 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				3B87D94C27F0C7F1005AC588 /* ViewController.swift in Sources */,
 				3B87D94A27F0C7F1005AC588 /* AppDelegate.swift in Sources */,
+				3B2A52D427F0EC150081A752 /* TideMachineView.swift in Sources */,
+				3B2A52DD27F0EFC20081A752 /* TideGradient.swift in Sources */,
+				3B2A52D727F0EF8F0081A752 /* Gradient.swift in Sources */,
+				3B2A52DA27F0EFA50081A752 /* BackgroundGradient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +396,59 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		3B2A52D127F0EBE40081A752 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8XS2V4WB4D;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSPrincipalClass = TideMachineView;
+				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = lian.land.TideMachine;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				WRAPPER_EXTENSION = saver;
+			};
+			name = Debug;
+		};
+		3B2A52D227F0EBE40081A752 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8XS2V4WB4D;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSPrincipalClass = TideMachineView;
+				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = lian.land.TideMachine;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				WRAPPER_EXTENSION = saver;
+			};
+			name = Release;
+		};
 		3B87D96927F0C7F3005AC588 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -542,6 +691,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3B2A52D027F0EBE40081A752 /* Build configuration list for PBXNativeTarget "TideMachine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B2A52D127F0EBE40081A752 /* Debug */,
+				3B2A52D227F0EBE40081A752 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		3B87D94127F0C7F1005AC588 /* Build configuration list for PBXProject "TideMachineApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
