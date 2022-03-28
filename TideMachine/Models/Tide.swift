@@ -40,10 +40,10 @@ class Tide {
     
     public var heights: [HeightData] = []
         
-    init(data: TideData, date: Date) {
+    init(data: TideData, customDate: CustomDate) {
         self.data = data
         wobble = Wobble(count: 0, rising: true)
-        gradient = TideGradient(date: date);
+        gradient = TideGradient(customDate: customDate);
         
         if data.heights.count == 0 {
             extremes = (0.0, 0.0)
@@ -54,7 +54,7 @@ class Tide {
         }
         
         heights = data.heights
-        heightPercent = getHeightPercent(date: date)
+        heightPercent = getHeightPercent(date: customDate.date)
     }
     
     func closestHeights(date: Date) -> (prev: HeightData, next: HeightData)? {
@@ -67,9 +67,9 @@ class Tide {
         return (heights[index!-1], heights[index!])
     }
     
-    func tick(date: Date) {
-        heightPercent = getHeightPercent(date: date)
-        gradient.tick(date: date)
+    func tick(customDate: CustomDate) {
+        heightPercent = getHeightPercent(date: customDate.date)
+        gradient.tick(customDate: customDate)
         updateWobble()
     }
     
@@ -78,19 +78,19 @@ class Tide {
             return 1.0
         }
 
-        let timeComponents = Calendar.current.dateComponents([.second],
-                                                             from: date,
-                                                             to: closestHeights.next.date)
-
-        let dateDiffSecs = 30.0 * 60.0;
-        let currentDiffSecs = timeComponents.second;
+        let currentMs = date.timeIntervalSince1970 * 1000
+        let prevMs = closestHeights.prev.date.timeIntervalSince1970 * 1000
+        let nextMs = closestHeights.next.date.timeIntervalSince1970 * 1000
+                
+        let progress = getProgress(
+            current: currentMs,
+            window: (start: prevMs, end: nextMs),
+            extremes: (min: prevMs, max: nextMs))
         
         let heightDiff = closestHeights.prev.height - closestHeights.next.height;
-        let heightDelta = heightDiff / dateDiffSecs;
+        let heightDelta = heightDiff * progress;
         
-        let secondsPastPrevious = dateDiffSecs - Double(currentDiffSecs!);
-        
-        let currentHeight = closestHeights.prev.height + heightDelta * secondsPastPrevious * -1;
+        let currentHeight = closestHeights.prev.height + heightDelta * -1;
 
         let offset = abs(min(extremes.min, 0))
         let range = extremes.max - extremes.min

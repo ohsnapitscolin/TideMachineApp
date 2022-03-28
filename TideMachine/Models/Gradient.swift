@@ -9,51 +9,49 @@ import AppKit
 import Foundation
 
 class Gradient {
-    private var gradients: [GradientData] = []
+    private var gradients: [Season: [TimeOfDay:GradientData]] = [:]
     public var gradient: NSGradient! = nil
     
-    init(gradients: [GradientData], date: Date) {
-        self.gradients = gradients
-        self.gradient = getGradient(date: date)
+    init(colors: [TimeOfDay: [Season:[(Int, Int, Int)]]],
+         locations: [CGFloat],
+         customDate: CustomDate) {
+        self.gradients = createGradients(colors: colors, locations: locations)
+        self.gradient = getGradient(customDate: customDate)
     }
     
-    func tick(date: Date) {
-        gradient = getGradient(date: date)
+    func tick(customDate: CustomDate) {
+        gradient = getGradient(customDate: customDate)
     }
     
-    func getGradient(date: Date) -> NSGradient {
-        var milliseconds = millisecondsPastMidnight(date: date)
-        var data = gradients.first(where: {
-            $0.startMillseconds <= milliseconds && $0.endMilliseconds > milliseconds
-        })
-        
-        if (data == nil) {
-            data = gradients.first(where: { $0.endMilliseconds < milliseconds })
-            return NSGradient(colors: data!.endColors,
-                              atLocations: data!.locations,
-                              colorSpace: NSColorSpace.deviceRGB)!
-        }
-        
-        milliseconds = milliseconds - data!.startMillseconds
-        let transitionMilliseconds = data!.endMilliseconds - data!.startMillseconds
+    func getGradient(customDate: CustomDate) -> NSGradient {
+        let metadata = customDate.metadata
+
+        let ms = metadata.msPastMidnight
+
+        let startGradient = gradients[metadata.season]![metadata.timeOfDay]!
+        let endGradient = gradients[metadata.nextSeason]![metadata.nextTimeOfDay]!
         
         var newColors: [NSColor] = [];
         
-        for (index, _) in data!.startColors.enumerated() {
-            let startColor = data!.startColors[index]
-            let endColor = data!.endColors[index]
+        for (index, _) in startGradient.colors.enumerated() {
+            let startColor = startGradient.colors[index]
+            let endColor = endGradient.colors[index]
             
             let startComponents = colorComponents(color: startColor)
             let endComponents = colorComponents(color: endColor)
                       
-            
             var newColorComponents: [CGFloat] = [];
             
             for (index, _) in startComponents.enumerated() {
                 let startFloat = startComponents[index]
                 let endFloat = endComponents[index]
                 
-                let delta = (startFloat - endFloat) * (CGFloat(milliseconds) / CGFloat(transitionMilliseconds))
+               let progress = getProgress(current: ms,
+                            window: (start: startGradient.startMilliseconds,
+                                     end: endGradient.startMilliseconds),
+                            extremes: (min: 0, max: 86400000))
+
+                let delta = (startFloat - endFloat) * progress
                 newColorComponents.append(startFloat - delta)
             }
             
@@ -63,34 +61,71 @@ class Gradient {
                                      alpha: newColorComponents[3]))
         }
         
+//        if (ms == 0) {
+//            print(newColors)
+//        }
+        
         return NSGradient(colors: newColors,
-                          atLocations: data!.locations,
+                          atLocations: startGradient.locations,
                           colorSpace: NSColorSpace.deviceRGB)!
     }
 }
 
-func rgbsToColors(rgbs: [[Int]]) -> [NSColor] {
+
+
+func rgbsToColors(rgbs: [(Int, Int, Int)]) -> [NSColor] {
     return rgbs.map({
-        return NSColor(red: CGFloat($0[0]) / 255,
-                       green: CGFloat($0[1]) / 255,
-                       blue: CGFloat($0[2]) / 255,
+        return NSColor(red: CGFloat($0.0) / 255,
+                       green: CGFloat($0.1) / 255,
+                       blue: CGFloat($0.2) / 255,
                        alpha: 1.0)
     })
 }
 
-func millisecondsPastMidnight(date: Date) -> Double {
-    let startOfDay = Calendar.current.startOfDay(for: date)
-    return (date.timeIntervalSince1970 - startOfDay.timeIntervalSince1970) * 1000
+func createGradients(colors: [TimeOfDay: [Season: [(Int, Int, Int)]]],
+                     locations: [CGFloat]) -> [Season: [TimeOfDay:GradientData]]  {
+    var gradients: [Season: [TimeOfDay:GradientData]] = [:]
+    
+    for season in Seasons {
+        for timeOfDay in TimesOfDay {
+            gradients[season] = gradients[season] ?? [:]
+            gradients[season]![timeOfDay] = createGradient(colors: colors[timeOfDay]![season]!,
+                                            locations: locations,
+                                            season: SeasonRanges[season]!,
+                                            time: TimeRanges[timeOfDay]!)
+                           
+        }
+    }
+                           
+    return gradients;
 }
+
+func createGradient(colors: [(Int, Int, Int)],
+                    locations: [CGFloat],
+                    season: (start:String, end:String),
+                    time: (start:String, end:String)) -> GradientData {
+    let dateFormatter = DateFormatter()
+    
+    dateFormatter.dateFormat = "MM-dd'T'HH"
+    
+    let startDate = dateFormatter.date(from: "\(season.start)T\(time.start)")!
+    let endDate = dateFormatter.date(from: "\(season.end)T\(time.end)")!
+    
+    return GradientData(
+            startMilliseconds: millisecondsPastMidnight(date: startDate),
+            endMilliseconds: millisecondsPastMidnight(date: endDate),
+            colors: rgbsToColors(rgbs: colors),
+            locations: locations)
+}
+
 
 func colorComponents(color: NSColor) -> [CGFloat] {
     return [color.redComponent, color.greenComponent, color.blueComponent, color.alphaComponent]
 }
-
+  
 struct GradientData {
-    let startMillseconds: Double
+    let startMilliseconds: Double
     let endMilliseconds: Double
-    let startColors: [NSColor]
-    let endColors: [NSColor]
+    let colors: [NSColor]
     let locations: [CGFloat]
 }

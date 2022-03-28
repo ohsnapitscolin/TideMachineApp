@@ -75,10 +75,10 @@ public class TideMachineView: ScreenSaverView {
         dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
  
-//        customDate = CustomDate(date: dateFormatter.date(from: "2022-03-28T00:00:00"))
+//        customDate = CustomDate(date: dateFormatter.date(from: "2022-06-20T12:00:00"))
         customDate = CustomDate(date: nil)
 
-        skyGraident = BackgroundGradient(date: customDate.date)
+        skyGraident = BackgroundGradient(customDate: customDate)
         
         dateFormatter.dateFormat = "MMM d, HH:mm:ss"
         persister = Persister()
@@ -103,7 +103,7 @@ public class TideMachineView: ScreenSaverView {
 
 //        debugOutput.append(persister.data.tideData.station)
 
-        tide = Tide(data: persister.data.tideData, date: customDate.date)
+        tide = Tide(data: persister.data.tideData, customDate: customDate)
         
         if !isPreview {
             let heights = tide.heights;
@@ -129,7 +129,7 @@ public class TideMachineView: ScreenSaverView {
        
         if data != nil {
             persister.write(data: data!)
-            tide = Tide(data: data!.tideData, date: customDate.date)
+            tide = Tide(data: data!.tideData, customDate: customDate)
         }
     }
 
@@ -149,6 +149,11 @@ public class TideMachineView: ScreenSaverView {
         drawBackground()
         
         textView.string = "\(dateFormatter.string(from: customDate.date))\n"
+            + "\(customDate.metadata.season)\n"
+            + "\(customDate.metadata.timeOfDay)\n"
+            + "\(customDate.metadata.lastDayOfSeason)\n"
+            + "\(customDate.metadata.nextSeason)\n"
+            + "\(customDate.metadata.nextTimeOfDay)\n"
         
         for output in debugOutput {
             textView.string += output + "\n"
@@ -165,8 +170,8 @@ public class TideMachineView: ScreenSaverView {
         
         // Advance Time
         customDate.tick()
-        tide.tick(date: customDate.date)
-        skyGraident.tick(date: customDate.date)
+        tide.tick(customDate: customDate)
+        skyGraident.tick(customDate: customDate)
         
         setNeedsDisplay(bounds)
     }

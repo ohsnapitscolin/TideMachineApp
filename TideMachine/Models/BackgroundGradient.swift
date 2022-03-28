@@ -8,72 +8,38 @@
 import Foundation
 
 class BackgroundGradient: Gradient {
-    let Morning = [
-        [251, 244, 162],
-        [193, 199, 134]
-    ]
-
-    let Day = [
-        [249, 241, 160],
-        [243, 243, 213]
-    ]
-
-    let Evening = [
-        [151, 155, 83],
-        [179, 221, 198]
-    ]
-
-    let Night = [
-        [1, 29, 65],
-        [141, 141, 139]
+    let Gradients = [
+        TimeOfDay.Morning: [
+            Season.Spring: [(251, 244, 162), (193, 199, 134)],
+            Season.Summer: [(243, 243, 213), (197, 150, 131)],
+            Season.Fall: [(243, 243, 213), (204, 134, 93)],
+            Season.Winter: [(49, 134, 156), (197, 150, 131)]
+        ],
+        TimeOfDay.Day: [
+            Season.Spring: [(249, 241, 160), (243, 243, 213)],
+            Season.Summer: [(223, 198, 195), (243, 243, 213)],
+            Season.Fall: [(214, 160, 138), (243, 243, 213)],
+            Season.Winter: [(107, 190, 193), (243, 243, 213)]
+        ],
+        TimeOfDay.Evening: [
+            Season.Spring: [(151, 155, 83), (179, 221, 198)],
+            Season.Summer: [(215, 169, 150), (179, 221, 198)],
+            Season.Fall: [(208, 144, 107), (179, 221, 198)],
+            Season.Winter: [(95, 64, 134), (179, 221, 198)]
+        ],
+        TimeOfDay.Night: [
+            Season.Spring: [(0, 0, 0), (141, 141, 139)],
+            Season.Summer: [(0, 0, 0), (152, 128, 127)],
+            Season.Fall: [(0, 0, 0), (147, 122, 108)],
+            Season.Winter: [(0, 0, 0), (141, 141, 139)]
+        ]
     ]
 
     let Locations: [CGFloat] = [0.5, 1.0]
     
-    init(date: Date) {
-        let MorningColors = rgbsToColors(rgbs: Morning)
-        let DayColors = rgbsToColors(rgbs: Day)
-        let EveningColors = rgbsToColors(rgbs: Evening)
-        let NightColors = rgbsToColors(rgbs: Night)
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM-dd'T'HH:mm:ss"
-
-        let gradients = [
-            GradientData(
-                startMillseconds: millisecondsPastMidnight(
-                    date: dateFormatter.date(from: "01-01T06:00:00")!),
-                endMilliseconds: millisecondsPastMidnight(
-                    date: dateFormatter.date(from: "01-01T11:59:59")!),
-                startColors: MorningColors,
-                endColors: DayColors,
-                locations: Locations),
-            GradientData(
-                startMillseconds: millisecondsPastMidnight(
-                    date: dateFormatter.date(from: "01-01T12:00:00")!),
-                endMilliseconds: millisecondsPastMidnight(
-                    date: dateFormatter.date(from: "01-01T17:59:59")!),
-                startColors: DayColors,
-                endColors: EveningColors,
-                locations: Locations),
-            GradientData(
-                startMillseconds: millisecondsPastMidnight(
-                    date: dateFormatter.date(from: "01-01T18:00:00")!),
-                endMilliseconds: millisecondsPastMidnight(
-                    date: dateFormatter.date(from: "01-01T23:59:59")!),
-                startColors: EveningColors,
-                endColors: NightColors,
-                locations: Locations),
-            GradientData(
-                startMillseconds: millisecondsPastMidnight(
-                    date: dateFormatter.date(from: "01-01T00:00:00")!),
-                endMilliseconds: millisecondsPastMidnight(
-                    date: dateFormatter.date(from: "01-01T05:59:59")!),
-                startColors: NightColors,
-                endColors: MorningColors,
-                locations: Locations)
-        ]
-        
-        super.init(gradients: gradients, date: date)
+    init(customDate: CustomDate) {
+        super.init(colors: Gradients,
+                   locations: Locations,
+                   customDate: customDate)
     }
 }

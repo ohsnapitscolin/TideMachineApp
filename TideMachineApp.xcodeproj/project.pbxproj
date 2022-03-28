@@ -23,6 +23,8 @@
 		3B2A535127F177820081A752 /* Tide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A52EB27F125970081A752 /* Tide.swift */; };
 		3B2A535227F177850081A752 /* WorldTides.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A52EF27F1327F0081A752 /* WorldTides.swift */; };
 		3B2A535327F177860081A752 /* WorldTides.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A52EF27F1327F0081A752 /* WorldTides.swift */; };
+		3B2A535627F206CF0081A752 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A535527F206CE0081A752 /* Util.swift */; };
+		3B2A535727F206CF0081A752 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A535527F206CE0081A752 /* Util.swift */; };
 		3B87D94A27F0C7F1005AC588 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B87D94927F0C7F1005AC588 /* AppDelegate.swift */; };
 		3B87D94C27F0C7F1005AC588 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B87D94B27F0C7F1005AC588 /* ViewController.swift */; };
 		3B87D94E27F0C7F3005AC588 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B87D94D27F0C7F3005AC588 /* Assets.xcassets */; };
@@ -59,6 +61,7 @@
 		3B2A52EF27F1327F0081A752 /* WorldTides.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldTides.swift; sourceTree = "<group>"; };
 		3B2A534427F1760E0081A752 /* CustomDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDate.swift; sourceTree = "<group>"; };
 		3B2A534727F177360081A752 /* Persister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persister.swift; sourceTree = "<group>"; };
+		3B2A535527F206CE0081A752 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		3B87D94627F0C7F1005AC588 /* TideMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TideMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B87D94927F0C7F1005AC588 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B87D94B27F0C7F1005AC588 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +110,7 @@
 		3B2A52CB27F0EBE40081A752 /* TideMachine */ = {
 			isa = PBXGroup;
 			children = (
+				3B2A535427F206C50081A752 /* Utils */,
 				3B2A52D327F0EC150081A752 /* TideMachineView.swift */,
 				3B2A52EE27F132670081A752 /* API */,
 				3B2A52E727F120440081A752 /* Models */,
@@ -141,6 +145,14 @@
 				3B2A52EF27F1327F0081A752 /* WorldTides.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		3B2A535427F206C50081A752 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				3B2A535527F206CE0081A752 /* Util.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		3B87D93D27F0C7F1005AC588 = {
@@ -373,6 +385,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B2A52D527F0EC150081A752 /* TideMachineView.swift in Sources */,
+				3B2A535727F206CF0081A752 /* Util.swift in Sources */,
 				3B2A534A27F177770081A752 /* TideGradient.swift in Sources */,
 				3B2A534927F177360081A752 /* Persister.swift in Sources */,
 				3B2A534627F1760E0081A752 /* CustomDate.swift in Sources */,
@@ -387,6 +400,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B2A535627F206CF0081A752 /* Util.swift in Sources */,
 				3B2A535327F177860081A752 /* WorldTides.swift in Sources */,
 				3B2A534827F177360081A752 /* Persister.swift in Sources */,
 				3B2A534B27F177780081A752 /* TideGradient.swift in Sources */,
