@@ -34,10 +34,10 @@ let SeasonRanges: [Season:(start: String, end: String)] = [
 ]
 
 let TimeRanges: [TimeOfDay:(start: String, end: String)] = [
-    TimeOfDay.Morning: (start: "05", end: "09"),
-    TimeOfDay.Day: (start: "09", end: "17"),
-    TimeOfDay.Evening: (start: "17", end: "21"),
-    TimeOfDay.Night: (start: "21", end: "05")
+    TimeOfDay.Morning: (start: "05:00", end: "08:30"),
+    TimeOfDay.Day: (start: "09:00", end: "16:30"),
+    TimeOfDay.Evening: (start: "17:00", end: "20:30"),
+    TimeOfDay.Night: (start: "21:00", end: "04:30")
 ]
 
 class CustomDate {
@@ -84,7 +84,7 @@ func getDateData(date: Date) -> DateMetadata {
     let milliseconds = millisecondsPastMidnight(date: date)
     let year = Calendar.current.component(.year, from: date)
 
-    dateFormatter.dateFormat = "HH"
+    dateFormatter.dateFormat = "HH-mm"
     
     var times: [Double] = TimesOfDay.map {
         millisecondsPastMidnight(date: dateFormatter.date(from: "\(TimeRanges[$0]!.start)")!)

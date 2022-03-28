@@ -7,12 +7,14 @@
 
 import Foundation
 
+let Location = (lon: "41.725040", lat: "-71.324036")
+
 public func fetchTides(date: Date, completion: @escaping (PersistData?) -> Void) {
     let host = "https://www.worldtides.info/api/v3?heights"
     let date = "today"
     let days = "7"
-    let lat = "41.725040"
-    let lon = "-71.324036"
+    let lat = Location.lat
+    let lon = Location.lon
     let key = "02b04d61-c363-4a63-98af-99f544a0521b"
     
     let url = URL(string: "\(host)&date=\(date)&days=\(days)&lat=\(lat)&lon=\(lon)&key=\(key)")!

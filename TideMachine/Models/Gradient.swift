@@ -30,7 +30,7 @@ class Gradient {
 
         let startGradient = gradients[metadata.season]![metadata.timeOfDay]!
         let endGradient = gradients[metadata.nextSeason]![metadata.nextTimeOfDay]!
-        
+    
         var newColors: [NSColor] = [];
         
         for (index, _) in startGradient.colors.enumerated() {
@@ -45,13 +45,22 @@ class Gradient {
             for (index, _) in startComponents.enumerated() {
                 let startFloat = startComponents[index]
                 let endFloat = endComponents[index]
-                
-               let progress = getProgress(current: ms,
-                            window: (start: startGradient.startMilliseconds,
-                                     end: endGradient.startMilliseconds),
-                            extremes: (min: 0, max: 86400000))
 
-                let delta = (startFloat - endFloat) * progress
+                let timeOfDayProgress = getProgress(current: ms,
+                             window: (start: startGradient.startMilliseconds,
+                                      end: startGradient.endMilliseconds),
+                             extremes: (min: 0, max: 86400000))
+                
+                var delta = 0.0;
+                
+                if (timeOfDayProgress >= 1.0 || timeOfDayProgress < 0.0) {
+                    let gradientProgress = getProgress(current: ms,
+                                window: (start: startGradient.endMilliseconds,
+                                         end: endGradient.startMilliseconds),
+                                extremes: (min: 0, max: 86400000))
+                    delta = (startFloat - endFloat) * gradientProgress
+                }
+                
                 newColorComponents.append(startFloat - delta)
             }
             
@@ -102,10 +111,10 @@ func createGradient(colors: [(Int, Int, Int)],
                     time: (start:String, end:String)) -> GradientData {
     let dateFormatter = DateFormatter()
     
-    dateFormatter.dateFormat = "MM-dd'T'HH"
+    dateFormatter.dateFormat = "HH:mm"
     
-    let startDate = dateFormatter.date(from: "\(season.start)T\(time.start)")!
-    let endDate = dateFormatter.date(from: "\(season.end)T\(time.end)")!
+    let startDate = dateFormatter.date(from: time.start)!
+    let endDate = dateFormatter.date(from: time.end)!
     
     return GradientData(
             startMilliseconds: millisecondsPastMidnight(date: startDate),
