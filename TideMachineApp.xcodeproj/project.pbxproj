@@ -9,23 +9,20 @@
 /* Begin PBXBuildFile section */
 		3B2A52D427F0EC150081A752 /* TideMachineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A52D327F0EC150081A752 /* TideMachineView.swift */; };
 		3B2A52D527F0EC150081A752 /* TideMachineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A52D327F0EC150081A752 /* TideMachineView.swift */; };
-		3B2A52D727F0EF8F0081A752 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A52D627F0EF8F0081A752 /* Gradient.swift */; };
-		3B2A52D827F0EF8F0081A752 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A52D627F0EF8F0081A752 /* Gradient.swift */; };
-		3B2A52DA27F0EFA50081A752 /* BackgroundGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A52D927F0EFA50081A752 /* BackgroundGradient.swift */; };
-		3B2A52DB27F0EFA50081A752 /* BackgroundGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A52D927F0EFA50081A752 /* BackgroundGradient.swift */; };
-		3B2A52DD27F0EFC20081A752 /* TideGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A52DC27F0EFC20081A752 /* TideGradient.swift */; };
-		3B2A52DE27F0EFC20081A752 /* TideGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A52DC27F0EFC20081A752 /* TideGradient.swift */; };
-		3B2A52E427F11F9F0081A752 /* Persister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A52E327F11F9F0081A752 /* Persister.swift */; };
-		3B2A52E527F11F9F0081A752 /* Persister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A52E327F11F9F0081A752 /* Persister.swift */; };
-		3B2A52EC27F125970081A752 /* Tide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A52EB27F125970081A752 /* Tide.swift */; };
-		3B2A52ED27F125970081A752 /* Tide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A52EB27F125970081A752 /* Tide.swift */; };
-		3B2A52F027F1327F0081A752 /* WorldTides.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A52EF27F1327F0081A752 /* WorldTides.swift */; };
-		3B2A52F127F1327F0081A752 /* WorldTides.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A52EF27F1327F0081A752 /* WorldTides.swift */; };
-		3B2A52F627F149A50081A752 /* CustomDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A52F527F149A50081A752 /* CustomDate.swift */; };
-		3B2A52F727F149A50081A752 /* CustomDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A52F527F149A50081A752 /* CustomDate.swift */; };
-		3B2A530727F168C10081A752 /* TestSaverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A530627F168C10081A752 /* TestSaverView.swift */; };
-		3B2A530827F168C10081A752 /* TestSaverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A530627F168C10081A752 /* TestSaverView.swift */; };
-		3B2A531127F16DF50081A752 /* CustomDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A52F527F149A50081A752 /* CustomDate.swift */; };
+		3B2A534527F1760E0081A752 /* CustomDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A534427F1760E0081A752 /* CustomDate.swift */; };
+		3B2A534627F1760E0081A752 /* CustomDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A534427F1760E0081A752 /* CustomDate.swift */; };
+		3B2A534827F177360081A752 /* Persister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A534727F177360081A752 /* Persister.swift */; };
+		3B2A534927F177360081A752 /* Persister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A534727F177360081A752 /* Persister.swift */; };
+		3B2A534A27F177770081A752 /* TideGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A52DC27F0EFC20081A752 /* TideGradient.swift */; };
+		3B2A534B27F177780081A752 /* TideGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A52DC27F0EFC20081A752 /* TideGradient.swift */; };
+		3B2A534C27F1777B0081A752 /* BackgroundGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A52D927F0EFA50081A752 /* BackgroundGradient.swift */; };
+		3B2A534D27F1777B0081A752 /* BackgroundGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A52D927F0EFA50081A752 /* BackgroundGradient.swift */; };
+		3B2A534E27F1777E0081A752 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A52D627F0EF8F0081A752 /* Gradient.swift */; };
+		3B2A534F27F1777F0081A752 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A52D627F0EF8F0081A752 /* Gradient.swift */; };
+		3B2A535027F177810081A752 /* Tide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A52EB27F125970081A752 /* Tide.swift */; };
+		3B2A535127F177820081A752 /* Tide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A52EB27F125970081A752 /* Tide.swift */; };
+		3B2A535227F177850081A752 /* WorldTides.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A52EF27F1327F0081A752 /* WorldTides.swift */; };
+		3B2A535327F177860081A752 /* WorldTides.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A52EF27F1327F0081A752 /* WorldTides.swift */; };
 		3B87D94A27F0C7F1005AC588 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B87D94927F0C7F1005AC588 /* AppDelegate.swift */; };
 		3B87D94C27F0C7F1005AC588 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B87D94B27F0C7F1005AC588 /* ViewController.swift */; };
 		3B87D94E27F0C7F3005AC588 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B87D94D27F0C7F3005AC588 /* Assets.xcassets */; };
@@ -58,12 +55,10 @@
 		3B2A52D627F0EF8F0081A752 /* Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
 		3B2A52D927F0EFA50081A752 /* BackgroundGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundGradient.swift; sourceTree = "<group>"; };
 		3B2A52DC27F0EFC20081A752 /* TideGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TideGradient.swift; sourceTree = "<group>"; };
-		3B2A52E327F11F9F0081A752 /* Persister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persister.swift; sourceTree = "<group>"; };
 		3B2A52EB27F125970081A752 /* Tide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tide.swift; sourceTree = "<group>"; };
 		3B2A52EF27F1327F0081A752 /* WorldTides.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldTides.swift; sourceTree = "<group>"; };
-		3B2A52F527F149A50081A752 /* CustomDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDate.swift; sourceTree = "<group>"; };
-		3B2A52FD27F168A80081A752 /* TestSaver.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestSaver.saver; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B2A530627F168C10081A752 /* TestSaverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSaverView.swift; sourceTree = "<group>"; };
+		3B2A534427F1760E0081A752 /* CustomDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDate.swift; sourceTree = "<group>"; };
+		3B2A534727F177360081A752 /* Persister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persister.swift; sourceTree = "<group>"; };
 		3B87D94627F0C7F1005AC588 /* TideMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TideMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B87D94927F0C7F1005AC588 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B87D94B27F0C7F1005AC588 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -79,13 +74,6 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		3B2A52C727F0EBE40081A752 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3B2A52FA27F168A80081A752 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -130,7 +118,7 @@
 		3B2A52DF27F11F650081A752 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
-				3B2A52E327F11F9F0081A752 /* Persister.swift */,
+				3B2A534727F177360081A752 /* Persister.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -142,7 +130,7 @@
 				3B2A52D627F0EF8F0081A752 /* Gradient.swift */,
 				3B2A52D927F0EFA50081A752 /* BackgroundGradient.swift */,
 				3B2A52DC27F0EFC20081A752 /* TideGradient.swift */,
-				3B2A52F527F149A50081A752 /* CustomDate.swift */,
+				3B2A534427F1760E0081A752 /* CustomDate.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -155,14 +143,6 @@
 			path = API;
 			sourceTree = "<group>";
 		};
-		3B2A52FE27F168A80081A752 /* TestSaver */ = {
-			isa = PBXGroup;
-			children = (
-				3B2A530627F168C10081A752 /* TestSaverView.swift */,
-			);
-			path = TestSaver;
-			sourceTree = "<group>";
-		};
 		3B87D93D27F0C7F1005AC588 = {
 			isa = PBXGroup;
 			children = (
@@ -170,7 +150,6 @@
 				3B87D95A27F0C7F3005AC588 /* TideMachineAppTests */,
 				3B87D96427F0C7F3005AC588 /* TideMachineAppUITests */,
 				3B2A52CB27F0EBE40081A752 /* TideMachine */,
-				3B2A52FE27F168A80081A752 /* TestSaver */,
 				3B87D94727F0C7F1005AC588 /* Products */,
 				3B87D99A27F0CBA7005AC588 /* Frameworks */,
 			);
@@ -183,7 +162,6 @@
 				3B87D95727F0C7F3005AC588 /* TideMachineAppTests.xctest */,
 				3B87D96127F0C7F3005AC588 /* TideMachineAppUITests.xctest */,
 				3B2A52CA27F0EBE40081A752 /* TideMachine.saver */,
-				3B2A52FD27F168A80081A752 /* TestSaver.saver */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -234,13 +212,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3B2A52F827F168A80081A752 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -260,24 +231,6 @@
 			name = TideMachine;
 			productName = TideMachine;
 			productReference = 3B2A52CA27F0EBE40081A752 /* TideMachine.saver */;
-			productType = "com.apple.product-type.bundle";
-		};
-		3B2A52FC27F168A80081A752 /* TestSaver */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3B2A530327F168A80081A752 /* Build configuration list for PBXNativeTarget "TestSaver" */;
-			buildPhases = (
-				3B2A52F827F168A80081A752 /* Headers */,
-				3B2A52F927F168A80081A752 /* Sources */,
-				3B2A52FA27F168A80081A752 /* Frameworks */,
-				3B2A52FB27F168A80081A752 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = TestSaver;
-			productName = TestSaver;
-			productReference = 3B2A52FD27F168A80081A752 /* TestSaver.saver */;
 			productType = "com.apple.product-type.bundle";
 		};
 		3B87D94527F0C7F1005AC588 /* TideMachineApp */ = {
@@ -347,10 +300,6 @@
 						CreatedOnToolsVersion = 13.3;
 						LastSwiftMigration = 1330;
 					};
-					3B2A52FC27F168A80081A752 = {
-						CreatedOnToolsVersion = 13.3;
-						LastSwiftMigration = 1330;
-					};
 					3B87D94527F0C7F1005AC588 = {
 						CreatedOnToolsVersion = 13.3;
 					};
@@ -381,20 +330,12 @@
 				3B87D95627F0C7F3005AC588 /* TideMachineAppTests */,
 				3B87D96027F0C7F3005AC588 /* TideMachineAppUITests */,
 				3B2A52C927F0EBE40081A752 /* TideMachine */,
-				3B2A52FC27F168A80081A752 /* TestSaver */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		3B2A52C827F0EBE40081A752 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3B2A52FB27F168A80081A752 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -431,23 +372,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B2A52E527F11F9F0081A752 /* Persister.swift in Sources */,
 				3B2A52D527F0EC150081A752 /* TideMachineView.swift in Sources */,
-				3B2A52DE27F0EFC20081A752 /* TideGradient.swift in Sources */,
-				3B2A52ED27F125970081A752 /* Tide.swift in Sources */,
-				3B2A52F727F149A50081A752 /* CustomDate.swift in Sources */,
-				3B2A52F127F1327F0081A752 /* WorldTides.swift in Sources */,
-				3B2A52D827F0EF8F0081A752 /* Gradient.swift in Sources */,
-				3B2A52DB27F0EFA50081A752 /* BackgroundGradient.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3B2A52F927F168A80081A752 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3B2A531127F16DF50081A752 /* CustomDate.swift in Sources */,
-				3B2A530827F168C10081A752 /* TestSaverView.swift in Sources */,
+				3B2A534A27F177770081A752 /* TideGradient.swift in Sources */,
+				3B2A534927F177360081A752 /* Persister.swift in Sources */,
+				3B2A534627F1760E0081A752 /* CustomDate.swift in Sources */,
+				3B2A535227F177850081A752 /* WorldTides.swift in Sources */,
+				3B2A535027F177810081A752 /* Tide.swift in Sources */,
+				3B2A534C27F1777B0081A752 /* BackgroundGradient.swift in Sources */,
+				3B2A534E27F1777E0081A752 /* Gradient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,17 +387,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B2A52E427F11F9F0081A752 /* Persister.swift in Sources */,
+				3B2A535327F177860081A752 /* WorldTides.swift in Sources */,
+				3B2A534827F177360081A752 /* Persister.swift in Sources */,
+				3B2A534B27F177780081A752 /* TideGradient.swift in Sources */,
+				3B2A534D27F1777B0081A752 /* BackgroundGradient.swift in Sources */,
 				3B87D94C27F0C7F1005AC588 /* ViewController.swift in Sources */,
+				3B2A534527F1760E0081A752 /* CustomDate.swift in Sources */,
+				3B2A534F27F1777F0081A752 /* Gradient.swift in Sources */,
 				3B87D94A27F0C7F1005AC588 /* AppDelegate.swift in Sources */,
-				3B2A52F027F1327F0081A752 /* WorldTides.swift in Sources */,
 				3B2A52D427F0EC150081A752 /* TideMachineView.swift in Sources */,
-				3B2A52DD27F0EFC20081A752 /* TideGradient.swift in Sources */,
-				3B2A52EC27F125970081A752 /* Tide.swift in Sources */,
-				3B2A52D727F0EF8F0081A752 /* Gradient.swift in Sources */,
-				3B2A52F627F149A50081A752 /* CustomDate.swift in Sources */,
-				3B2A52DA27F0EFA50081A752 /* BackgroundGradient.swift in Sources */,
-				3B2A530727F168C10081A752 /* TestSaverView.swift in Sources */,
+				3B2A535127F177820081A752 /* Tide.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -533,6 +464,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = lian.land.TideMachine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -560,61 +492,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = lian.land.TideMachine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				WRAPPER_EXTENSION = saver;
-			};
-			name = Release;
-		};
-		3B2A530427F168A80081A752 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8XS2V4WB4D;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_NSPrincipalClass = TestSaverView;
-				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = lian.land.TestSaver;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				WRAPPER_EXTENSION = saver;
-			};
-			name = Debug;
-		};
-		3B2A530527F168A80081A752 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8XS2V4WB4D;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_NSPrincipalClass = TestSaverView;
-				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = lian.land.TestSaver;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				WRAPPER_EXTENSION = saver;
@@ -868,15 +746,6 @@
 			buildConfigurations = (
 				3B2A52D127F0EBE40081A752 /* Debug */,
 				3B2A52D227F0EBE40081A752 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3B2A530327F168A80081A752 /* Build configuration list for PBXNativeTarget "TestSaver" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3B2A530427F168A80081A752 /* Debug */,
-				3B2A530527F168A80081A752 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
