@@ -19,7 +19,7 @@ public struct HeightData: Codable {
 }
 
 struct Wobble {
-    var count: CGFloat
+    var progress: CGFloat
     var rising: Bool
 }
 
@@ -42,7 +42,7 @@ class Tide {
         
     init(data: TideData, customDate: CustomDate) {
         self.data = data
-        wobble = Wobble(count: 0, rising: true)
+        wobble = Wobble(progress: 0.5, rising: true)
         gradient = TideGradient(customDate: customDate);
         
         if data.heights.count == 0 {
@@ -89,13 +89,12 @@ class Tide {
         
         let heightDiff = closestHeights.prev.height - closestHeights.next.height;
         let heightDelta = heightDiff * progress;
-        
         let currentHeight = closestHeights.prev.height + heightDelta * -1;
 
-        let offset = abs(min(extremes.min, 0))
-        let range = extremes.max - extremes.min
-    
-        return (currentHeight + offset) / range
+        return getProgress(
+            current: currentHeight,
+            window: (start: extremes.min, end: extremes.max),
+            extremes: (min: extremes.min, max: extremes.max))
     }
     
     func getPercentage() -> Double {
@@ -103,24 +102,27 @@ class Tide {
     }
     
     func updateWobble() {
-        if (abs(wobble.count) >= MaxWobble) {
+        if (wobble.progress >= 1 || wobble.progress <= 0) {
             wobble.rising = !wobble.rising
         }
-        wobble.count += WobbleSpeed * (wobble.rising ? 1 : -1)
+        
+        let increment =  WobbleSpeed / (MaxWobble * 2) * (wobble.rising ? 1 : -1)
+        wobble.progress += increment
     }
     
     public func draw(frame: NSRect) {
-        var heightRatio = MinHeightRatio + (MaxHeightRatio - MinHeightRatio) * heightPercent;
-
+        let heightRatio = MinHeightRatio + (MaxHeightRatio - MinHeightRatio) * heightPercent;
+        let wobbleCount = -MaxWobble + (MaxWobble * 2) * sineEaseInOut(x: wobble.progress)
+        
         let tideWidth = frame.width * TideWidthRatio
         let tideHeight = frame.height * heightRatio
         let widthOffset = (frame.width - tideWidth) / 2.0
-        heightRatio = tideHeight * -1.0 + (tideHeight / 2.0)
+        let heightOffset = tideHeight * -1.0 + (tideHeight / 2.0)
 
         let tideRect = NSRect(x: widthOffset,
-                          y: heightRatio + wobble.count,
-                          width: tideWidth,
-                          height: tideHeight)
+                              y: heightOffset + wobbleCount,
+                              width: tideWidth,
+                              height: tideHeight)
 
         let arc = NSBezierPath(ovalIn: tideRect)
         gradient.gradient.draw(in: arc, angle: 90)

@@ -75,7 +75,7 @@ public class TideMachineView: ScreenSaverView {
         dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
  
-//        customDate = CustomDate(date: dateFormatter.date(from: "2022-06-20T12:00:00"))
+//        customDate = CustomDate(date: dateFormatter.date(from: "2022-03-28T12:00:00"))
         customDate = CustomDate(date: nil)
 
         skyGraident = BackgroundGradient(customDate: customDate)
