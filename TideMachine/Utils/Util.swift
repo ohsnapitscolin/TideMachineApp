@@ -22,3 +22,7 @@ func getProgress(current: Double,
     let distance = end < start ? (extremes.max - start) + (end - extremes.min) : end - start
     return diff / distance
 }
+
+func sineEaseInOut(x: CGFloat) -> CGFloat {
+    return 1 / 2 * ((1 - cos(x * .pi)))
+}

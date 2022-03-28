@@ -60,11 +60,7 @@ class Gradient {
                                      blue: newColorComponents[2],
                                      alpha: newColorComponents[3]))
         }
-        
-//        if (ms == 0) {
-//            print(newColors)
-//        }
-        
+
         return NSGradient(colors: newColors,
                           atLocations: startGradient.locations,
                           colorSpace: NSColorSpace.deviceRGB)!
