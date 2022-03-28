@@ -31,16 +31,19 @@ let MaxWobble: CGFloat = 20.0
 let WobbleSpeed: CGFloat = 0.5
 
 class Tide {
-    private var data: TideData!;
-    private var wobble: Wobble!;
-    private var gradient: Gradient!;
+    private var data: TideData!
+    private var wobble: Wobble!
+    private var gradient: Gradient!
     
     private var extremes: (min: Double, max: Double)
+    private var heightPercent: Double = 1.0
+    
+    public var heights: [HeightData] = []
         
-    init(data: TideData) {
+    init(data: TideData, date: Date) {
         self.data = data
         wobble = Wobble(count: 0, rising: true)
-        gradient = TideGradient();
+        gradient = TideGradient(date: date);
         
         if data.heights.count == 0 {
             extremes = (0.0, 0.0)
@@ -49,15 +52,13 @@ class Tide {
             heights.sort()
             extremes = (heights[0], heights[heights.count-1])
         }
-    }
-
-    var heights: [HeightData] {
-        get { return data.heights }
+        
+        heights = data.heights
+        heightPercent = getHeightPercent(date: date)
     }
     
-    func closestHeights() -> (prev: HeightData, next: HeightData)? {
-        let now = Date()
-        let index = heights.firstIndex(where: { $0.date > now })
+    func closestHeights(date: Date) -> (prev: HeightData, next: HeightData)? {
+        let index = heights.firstIndex(where: { $0.date > date })
 
         if (index == nil || index! <= 0) {
             return nil
@@ -66,14 +67,19 @@ class Tide {
         return (heights[index!-1], heights[index!])
     }
     
-    func heightRatio() -> Double {
-        guard let closestHeights = closestHeights() else {
+    func tick(date: Date) {
+        heightPercent = getHeightPercent(date: date)
+        gradient.tick(date: date)
+        updateWobble()
+    }
+    
+    func getHeightPercent(date: Date) -> Double {
+        guard let closestHeights = closestHeights(date: date) else {
             return 1.0
         }
 
-        let now = Date()
         let timeComponents = Calendar.current.dateComponents([.second],
-                                                             from: now,
+                                                             from: date,
                                                              to: closestHeights.next.date)
 
         let dateDiffSecs = 30.0 * 60.0;
@@ -89,13 +95,11 @@ class Tide {
         let offset = abs(min(extremes.min, 0))
         let range = extremes.max - extremes.min
     
-        let percentPastLow = (currentHeight + offset) / range
-        return MinHeightRatio + (MaxHeightRatio - MinHeightRatio) * percentPastLow;
+        return (currentHeight + offset) / range
     }
     
     func getPercentage() -> Double {
-        let percentage = (heightRatio() - MinHeightRatio) / (MaxHeightRatio - MinHeightRatio);
-        return round(percentage * 100 * 100) / 100.0
+        return round(heightPercent * 100 * 100) / 100.0
     }
     
     func updateWobble() {
@@ -106,9 +110,7 @@ class Tide {
     }
     
     public func draw(frame: NSRect) {
-        updateWobble()
-
-        var heightRatio = heightRatio()
+        var heightRatio = MinHeightRatio + (MaxHeightRatio - MinHeightRatio) * heightPercent;
 
         let tideWidth = frame.width * TideWidthRatio
         let tideHeight = frame.height * heightRatio
@@ -121,6 +123,6 @@ class Tide {
                           height: tideHeight)
 
         let arc = NSBezierPath(ovalIn: tideRect)
-        gradient.gradient()!.draw(in: arc, angle: 90)
+        gradient.gradient.draw(in: arc, angle: 90)
     }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-public func fetchTides(completion: @escaping (PersistData?) -> Void) {
+public func fetchTides(date: Date, completion: @escaping (PersistData?) -> Void) {
     let host = "https://www.worldtides.info/api/v3?heights"
     let date = "today"
     let days = "7"

@@ -10,13 +10,19 @@ import Foundation
 
 class Gradient {
     private var gradients: [GradientData] = []
+    public var gradient: NSGradient! = nil
     
-    init(gradients: [GradientData]) {
+    init(gradients: [GradientData], date: Date) {
         self.gradients = gradients
+        self.gradient = getGradient(date: date)
     }
     
-    func gradient() -> NSGradient? {
-        var milliseconds = millisecondsPastMidnight(date: Date())
+    func tick(date: Date) {
+        gradient = getGradient(date: date)
+    }
+    
+    func getGradient(date: Date) -> NSGradient {
+        var milliseconds = millisecondsPastMidnight(date: date)
         var data = gradients.first(where: {
             $0.startMillseconds <= milliseconds && $0.endMilliseconds > milliseconds
         })
@@ -25,7 +31,7 @@ class Gradient {
             data = gradients.first(where: { $0.endMilliseconds < milliseconds })
             return NSGradient(colors: data!.endColors,
                               atLocations: data!.locations,
-                              colorSpace: NSColorSpace.deviceRGB)
+                              colorSpace: NSColorSpace.deviceRGB)!
         }
         
         milliseconds = milliseconds - data!.startMillseconds
@@ -59,7 +65,7 @@ class Gradient {
         
         return NSGradient(colors: newColors,
                           atLocations: data!.locations,
-                          colorSpace: NSColorSpace.deviceRGB)
+                          colorSpace: NSColorSpace.deviceRGB)!
     }
 }
 

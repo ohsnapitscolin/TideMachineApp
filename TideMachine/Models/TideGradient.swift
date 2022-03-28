@@ -34,41 +34,50 @@ class TideGradient: Gradient {
 
     let Locations: [CGFloat] = [0.5, 0.65, 0.95]
     
-    init() {
+    init(date: Date) {
         let MorningColors = rgbsToColors(rgbs: Morning)
         let DayColors = rgbsToColors(rgbs: Day)
         let EveningColors = rgbsToColors(rgbs: Evening)
         let NightColors = rgbsToColors(rgbs: Night)
-
-        let date = Date()
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM-dd'T'HH:mm:ss"
         
         let gradients = [
             GradientData(
-                startMillseconds: millisecondsPastMidnight(date: date),
-                endMilliseconds: millisecondsPastMidnight(date: date.addingTimeInterval(1 * 10)),
+                startMillseconds: millisecondsPastMidnight(
+                    date: dateFormatter.date(from: "01-01T06:00:00")!),
+                endMilliseconds: millisecondsPastMidnight(
+                    date: dateFormatter.date(from: "01-01T11:59:59")!),
                 startColors: MorningColors,
                 endColors: DayColors,
                 locations: Locations),
             GradientData(
-                startMillseconds: millisecondsPastMidnight(date: date.addingTimeInterval(10)),
-                endMilliseconds: millisecondsPastMidnight(date: date.addingTimeInterval(2 * 10)),
+                startMillseconds: millisecondsPastMidnight(
+                    date: dateFormatter.date(from: "01-01T12:00:00")!),
+                endMilliseconds: millisecondsPastMidnight(
+                    date: dateFormatter.date(from: "01-01T17:59:59")!),
                 startColors: DayColors,
                 endColors: EveningColors,
                 locations: Locations),
             GradientData(
-                startMillseconds: millisecondsPastMidnight(date: date.addingTimeInterval(2 * 10)),
-                endMilliseconds: millisecondsPastMidnight(date: date.addingTimeInterval(3 * 10)),
+                startMillseconds: millisecondsPastMidnight(
+                    date: dateFormatter.date(from: "01-01T18:00:00")!),
+                endMilliseconds: millisecondsPastMidnight(
+                    date: dateFormatter.date(from: "01-01T23:59:59")!),
                 startColors: EveningColors,
                 endColors: NightColors,
                 locations: Locations),
             GradientData(
-                startMillseconds: millisecondsPastMidnight(date: date.addingTimeInterval(3 * 10)),
-                endMilliseconds: millisecondsPastMidnight(date: date),
+                startMillseconds: millisecondsPastMidnight(
+                    date: dateFormatter.date(from: "01-01T00:00:00")!),
+                endMilliseconds: millisecondsPastMidnight(
+                    date: dateFormatter.date(from: "01-01T05:59:59")!),
                 startColors: NightColors,
                 endColors: MorningColors,
                 locations: Locations)
         ]
         
-        super.init(gradients: gradients)
+        super.init(gradients: gradients, date: date)
     }
 }
