@@ -27,22 +27,30 @@ let MinHeightRatio = 0.25
 let MaxHeightRatio = 1.75
 let TideWidthRatio = 1.25
 
-let MaxWobble: CGFloat = 20.0
-let WobbleSpeed: CGFloat = 0.5
-
 class Tide {
     private var data: TideData!
-    private var wobble: Wobble!
     private var gradient: Gradient!
+
+    private var wobble: Incrementor!
+    private var fallback: Incrementor!
     
-    private var extremes: (min: Double, max: Double)
-    private var heightPercent: Double = 1.0
+    private var fallbackPerfect: Double = 0.5
+    private var heightPercent: Double = 0.5
     
-    public var heights: [HeightData] = []
-        
+    public var rising: Bool =  true
+    public var extremes: (min: Double, max: Double)
+    public var currentHeight: Double = 0.0
+
     init(data: TideData, customDate: CustomDate) {
         self.data = data
-        wobble = Wobble(progress: 0.5, rising: true)
+        wobble = Incrementor(progress: 0.5,
+                             extremes: (min: -20.0, max: 20.0),
+                             increment: 0.5)
+        
+        fallback = Incrementor(progress: 0.5,
+                               extremes: (min: 0.0, max: 1.0),
+                               increment: 0.01)
+        
         gradient = TideGradient(customDate: customDate);
         
         if data.heights.count == 0 {
@@ -53,7 +61,6 @@ class Tide {
             extremes = (heights[0], heights[heights.count-1])
         }
         
-        heights = data.heights
         heightPercent = getHeightPercent(date: customDate.date)
     }
     
@@ -70,12 +77,13 @@ class Tide {
     func tick(customDate: CustomDate) {
         heightPercent = getHeightPercent(date: customDate.date)
         gradient.tick(customDate: customDate)
-        updateWobble()
+        wobble.tick()
+        fallback.tick()
     }
     
     func getHeightPercent(date: Date) -> Double {
         guard let closestHeights = closestHeights(date: date) else {
-            return 1.0
+            return fallback.value
         }
 
         let currentMs = date.timeIntervalSince1970 * 1000
@@ -89,7 +97,9 @@ class Tide {
         
         let heightDiff = closestHeights.prev.height - closestHeights.next.height;
         let heightDelta = heightDiff * progress;
-        let currentHeight = closestHeights.prev.height + heightDelta * -1;
+        
+        rising = heightDelta < 0
+        currentHeight = closestHeights.prev.height + heightDelta * -1;
 
         return getProgress(
             current: currentHeight,
@@ -97,22 +107,30 @@ class Tide {
             extremes: (min: extremes.min, max: extremes.max))
     }
     
-    func getPercentage() -> Double {
-        return round(heightPercent * 100 * 100) / 100.0
+    var heights: [HeightData] {
+        get { data.heights }
     }
     
-    func updateWobble() {
-        if (wobble.progress >= 1 || wobble.progress <= 0) {
-            wobble.rising = !wobble.rising
-        }
-        
-        let increment =  WobbleSpeed / (MaxWobble * 2) * (wobble.rising ? 1 : -1)
-        wobble.progress += increment
+    var isEmpty: Bool {
+        get { heights.count == 0 }
     }
+    
+    var currentHeightFeet: Double {
+        get { round(currentHeight * 3.28084 * 1000) / 1000.0 }
+    }
+    
+    var percentage: Double {
+        get { round(heightPercent * 100 * 100) / 100.0 }
+    }
+    
+    var station: String {
+        get { data.station }
+    }
+    
     
     public func draw(frame: NSRect) {
-        let heightRatio = MinHeightRatio + (MaxHeightRatio - MinHeightRatio) * heightPercent;
-        let wobbleCount = -MaxWobble + (MaxWobble * 2) * sineEaseInOut(x: wobble.progress)
+        let heightRatio = clamp(percent: heightPercent,
+                                extremes: (min: MinHeightRatio, max: MaxHeightRatio))
         
         let tideWidth = frame.width * TideWidthRatio
         let tideHeight = frame.height * heightRatio
@@ -120,7 +138,7 @@ class Tide {
         let heightOffset = tideHeight * -1.0 + (tideHeight / 2.0)
 
         let tideRect = NSRect(x: widthOffset,
-                              y: heightOffset + wobbleCount,
+                              y: heightOffset + wobble.value,
                               width: tideWidth,
                               height: tideHeight)
 

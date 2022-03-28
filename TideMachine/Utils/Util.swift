@@ -23,6 +23,36 @@ func getProgress(current: Double,
     return diff / distance
 }
 
+func clamp(percent: Double, extremes: (min: Double, max: Double)) -> Double {
+    return extremes.min + (extremes.max - extremes.min) * percent
+}
+
 func sineEaseInOut(x: CGFloat) -> CGFloat {
     return 1 / 2 * ((1 - cos(x * .pi)))
+}
+
+class Incrementor {
+    public var progress: Double
+    public var rising: Bool = true
+    public var extremes: (min: Double, max: Double)
+    public var increment: Double
+    
+    init(progress: Double, extremes: (min: Double, max: Double), increment: Double) {
+        self.progress = progress
+        self.extremes = extremes
+        self.increment = increment
+    }
+    
+    func tick() {
+        if (progress >= extremes.max || progress <= extremes.min) {
+            rising = !rising
+        }
+        
+        let delta =  increment / (extremes.max - extremes.min) * (rising ? 1 : -1)
+        progress += delta
+    }
+    
+    var value: Double {
+        get { return clamp(percent: sineEaseInOut(x: progress), extremes: extremes) }
+    }
 }

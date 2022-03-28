@@ -13,18 +13,6 @@ import ScreenSaver
 
 var player: AVAudioPlayer!
 
-let UseTestData = false
-
-let Locations: [Location] = [
-    Location(name: "Rhode Island", coordinates: CGPoint(x: 41.725040, y: -71.324036)),
-    Location(name: "California", coordinates: CGPoint(x: 34.407043, y: -119.878510))
-]
-
-struct Location {
-    let name: String
-    let coordinates: CGPoint
-}
-
 public class TideMachineView: ScreenSaverView {
 
     private var persister: Persister! = nil
@@ -75,12 +63,12 @@ public class TideMachineView: ScreenSaverView {
         dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
  
-//        customDate = CustomDate(date: dateFormatter.date(from: "2022-03-28T12:00:00"))
-        customDate = CustomDate(date: nil)
+        customDate = CustomDate(date: dateFormatter.date(from: "2022-01-01T21:00:00"))
+//        customDate = CustomDate(date: nil)
 
         skyGraident = BackgroundGradient(customDate: customDate)
         
-        dateFormatter.dateFormat = "MMM d, HH:mm:ss"
+        dateFormatter.dateFormat = "HH:mm:ss"
         persister = Persister()
         
 //        let locationManager = CLLocationManager()
@@ -96,9 +84,15 @@ public class TideMachineView: ScreenSaverView {
 //            debugOutput.append("REQUESTED")
 //        }
 
-        textView = NSTextView(frame: frame)
-        textView.textColor = .white
+        let marginX = 15.0;
+        let marginY = 20.0
+        textView = NSTextView(frame: NSRect(x: marginX,
+                                            y: marginY,
+                                            width: frame.width - (marginX * 2),
+                                            height: frame.height - (marginY * 2)))
+        textView.textColor = .black
         textView.backgroundColor = .clear
+        textView.font = NSFont.systemFont(ofSize: 10.5)
         self.addSubview(textView)
 
 //        debugOutput.append(persister.data.tideData.station)
@@ -149,11 +143,13 @@ public class TideMachineView: ScreenSaverView {
         drawBackground()
         
         textView.string = "\(dateFormatter.string(from: customDate.date))\n"
-            + "\(customDate.metadata.season)\n"
-            + "\(customDate.metadata.timeOfDay)\n"
-            + "\(customDate.metadata.lastDayOfSeason)\n"
-            + "\(customDate.metadata.nextSeason)\n"
-            + "\(customDate.metadata.nextTimeOfDay)\n"
+//            + "\(customDate.metadata.season)\n"
+//            + "\(customDate.metadata.timeOfDay)\n"
+//            + "\(customDate.metadata.lastDayOfSeason)\n"
+//            + "\(customDate.metadata.nextSeason)\n"
+//            + "\(customDate.metadata.nextTimeOfDay)\n"
+        
+//        dateFormmater
         
         for output in debugOutput {
             textView.string += output + "\n"
@@ -162,7 +158,11 @@ public class TideMachineView: ScreenSaverView {
         if (isLoading) { return }
 
         tide.draw(frame: rect)
-        textView.string += "\(tide.getPercentage())%"
+        if !tide.isEmpty {
+            let arrowText = tide.rising ? "↑" : "↓"
+            textView.string += "\(tide.station)\n"
+            textView.string += "\(arrowText) \(tide.currentHeightFeet)ft \(tide.percentage)%"
+        }
     }
     
     public override func animateOneFrame() {
