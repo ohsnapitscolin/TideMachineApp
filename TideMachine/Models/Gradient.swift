@@ -16,18 +16,20 @@ class Gradient {
     }
     
     func gradient() -> NSGradient? {
-        var seconds = secondsPastMidnight(date: Date())
-        var data = gradients.first(where: { $0.startSeconds <= seconds && $0.endSeconds > seconds })
+        var milliseconds = millisecondsPastMidnight(date: Date())
+        var data = gradients.first(where: {
+            $0.startMillseconds <= milliseconds && $0.endMilliseconds > milliseconds
+        })
         
         if (data == nil) {
-            data = gradients.first(where: { $0.endSeconds < seconds })
+            data = gradients.first(where: { $0.endMilliseconds < milliseconds })
             return NSGradient(colors: data!.endColors,
                               atLocations: data!.locations,
                               colorSpace: NSColorSpace.deviceRGB)
         }
         
-        seconds = seconds - data!.startSeconds
-        let transitionSeconds = data!.endSeconds - data!.startSeconds
+        milliseconds = milliseconds - data!.startMillseconds
+        let transitionMilliseconds = data!.endMilliseconds - data!.startMillseconds
         
         var newColors: [NSColor] = [];
         
@@ -45,7 +47,7 @@ class Gradient {
                 let startFloat = startComponents[index]
                 let endFloat = endComponents[index]
                 
-                let delta = (startFloat - endFloat) * (CGFloat(seconds) / CGFloat(transitionSeconds))
+                let delta = (startFloat - endFloat) * (CGFloat(milliseconds) / CGFloat(transitionMilliseconds))
                 newColorComponents.append(startFloat - delta)
             }
             
@@ -55,19 +57,10 @@ class Gradient {
                                      alpha: newColorComponents[3]))
         }
         
-//        print("red \(newColors[0].redComponent), green \(newColors[0].greenComponent) blue \(newColors[0].blueComponent)")
         return NSGradient(colors: newColors,
                           atLocations: data!.locations,
                           colorSpace: NSColorSpace.deviceRGB)
     }
-    
-    
- 
-    private func colorComponents(color: NSColor) -> [CGFloat] {
-        return [color.redComponent, color.greenComponent, color.blueComponent, color.alphaComponent]
-    }
-
-
 }
 
 func rgbsToColors(rgbs: [[Int]]) -> [NSColor] {
@@ -79,16 +72,18 @@ func rgbsToColors(rgbs: [[Int]]) -> [NSColor] {
     })
 }
 
-func secondsPastMidnight(date: Date) -> Int {
-    let calendar = Calendar.current
-    let startOfDay = calendar.startOfDay(for: date)
-    let components = Calendar.current.dateComponents([.second], from: startOfDay, to: date)
-    return components.second!;
+func millisecondsPastMidnight(date: Date) -> Double {
+    let startOfDay = Calendar.current.startOfDay(for: date)
+    return (date.timeIntervalSince1970 - startOfDay.timeIntervalSince1970) * 1000
+}
+
+func colorComponents(color: NSColor) -> [CGFloat] {
+    return [color.redComponent, color.greenComponent, color.blueComponent, color.alphaComponent]
 }
 
 struct GradientData {
-    let startSeconds: Int
-    let endSeconds: Int
+    let startMillseconds: Double
+    let endMilliseconds: Double
     let startColors: [NSColor]
     let endColors: [NSColor]
     let locations: [CGFloat]
