@@ -16,7 +16,9 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.setFrameSize(CGSize(width:1000, height:750))
+        let margin = 30.0;
+        view.setFrameSize(CGSize(width:NSScreen.main!.frame.width - margin * 2.0,
+                                 height:NSScreen.main!.frame.height - margin * 2.0))
         addScreensaver()
         
         timer = Timer.scheduledTimer(withTimeInterval: 1.0/30, repeats: true) { timer in

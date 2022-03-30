@@ -45,6 +45,8 @@ class Tide {
 
     init(data: TideData, customDate: CustomDate) {
         self.data = data
+        customDate.timezone = TimeZone(identifier: data.timezone) ?? TimeZone.current
+        
         wobble = Incrementor(progress: 0.5,
                              extremes: (min: -20.0, max: 20.0),
                              increment: 0.5)
@@ -63,6 +65,7 @@ class Tide {
             extremes = (heights[0], heights[heights.count-1])
         }
         
+
         heightPercent = getHeightPercent(date: customDate.date)
     }
     

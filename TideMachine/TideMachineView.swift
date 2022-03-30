@@ -92,11 +92,6 @@ public class TideMachineView: ScreenSaverView {
         }
 
         tide = Tide(data: persister.data.tideData, customDate: customDate)
-        
-        if (tide.timezone != "") {
-            customDate.timezone = TimeZone(identifier: tide.timezone)!
-        }
-        
         skyGraident = BackgroundGradient(customDate: customDate)
         
         if !isPreview {
@@ -135,7 +130,7 @@ public class TideMachineView: ScreenSaverView {
             debugOutput.append(error!)
         }
         
-        if data != nil {
+        if data != nil && data!.tideData.heights.count > 0 {
             persister.write(data: data!)
             customDate.timezone = TimeZone(identifier: data!.tideData.timezone)!
             tide = Tide(data: data!.tideData, customDate: customDate)
@@ -172,10 +167,11 @@ public class TideMachineView: ScreenSaverView {
         if (isLoading) { return }
 
         tide.draw(frame: rect)
+
         if !tide.isEmpty {
             let arrowText = tide.rising ? "↑" : "↓"
-            let station = tide.station != "" ? tide.station : LocationName
-            textView.string += "\(station)\n"
+            textView.string += "\(LocationName)\n"
+//            if tide.station != "" { textView.string += "\(tide.station)\n" }
             textView.string += "\(arrowText) \(tide.currentHeightFeet)ft \(tide.percentage)%"
         }
     }
