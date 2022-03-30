@@ -33,7 +33,7 @@ class Persister {
         if (!FileManager.default.fileExists(atPath: fileUrl.path)) {
             reset()
         }
-        
+
         data = read()
         
         if (data == nil) {
@@ -47,7 +47,7 @@ class Persister {
     }
     
     private func empty() -> PersistData {
-        let tideData = TideData(heights: [], station: "")
+        let tideData = TideData(name: "", heights: [], station: "", timezone: "")
         return PersistData(tideData: tideData)
     }
 

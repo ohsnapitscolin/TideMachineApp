@@ -9,8 +9,10 @@ import Foundation
 import AppKit
 
 public struct TideData: Codable {
+    var name: String
     var heights: [HeightData]
     var station: String
+    var timezone: String
 }
 
 public struct HeightData: Codable {
@@ -106,9 +108,17 @@ class Tide {
             window: (start: extremes.min, end: extremes.max),
             extremes: (min: extremes.min, max: extremes.max))
     }
+   
+    var name: String {
+        get { data.name }
+    }
     
     var heights: [HeightData] {
         get { data.heights }
+    }
+    
+    var timezone: String {
+        get { data.timezone }
     }
     
     var isEmpty: Bool {

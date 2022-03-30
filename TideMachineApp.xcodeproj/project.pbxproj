@@ -32,6 +32,8 @@
 		3B87D95C27F0C7F3005AC588 /* TideMachineAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B87D95B27F0C7F3005AC588 /* TideMachineAppTests.swift */; };
 		3B87D96627F0C7F3005AC588 /* TideMachineAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B87D96527F0C7F3005AC588 /* TideMachineAppUITests.swift */; };
 		3B87D96827F0C7F3005AC588 /* TideMachineAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B87D96727F0C7F3005AC588 /* TideMachineAppUITestsLaunchTests.swift */; };
+		3BB2DF5927F3E20100F9FCE1 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB2DF5827F3E20100F9FCE1 /* Config.swift */; };
+		3BB2DF5A27F3E20100F9FCE1 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB2DF5827F3E20100F9FCE1 /* Config.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,7 @@
 		3B87D96127F0C7F3005AC588 /* TideMachineAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TideMachineAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B87D96527F0C7F3005AC588 /* TideMachineAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TideMachineAppUITests.swift; sourceTree = "<group>"; };
 		3B87D96727F0C7F3005AC588 /* TideMachineAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TideMachineAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3BB2DF5827F3E20100F9FCE1 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,11 +113,12 @@
 		3B2A52CB27F0EBE40081A752 /* TideMachine */ = {
 			isa = PBXGroup;
 			children = (
-				3B2A535427F206C50081A752 /* Utils */,
 				3B2A52D327F0EC150081A752 /* TideMachineView.swift */,
+				3B2A535427F206C50081A752 /* Utils */,
 				3B2A52EE27F132670081A752 /* API */,
 				3B2A52E727F120440081A752 /* Models */,
 				3B2A52DF27F11F650081A752 /* Persistence */,
+				3BB2DF5827F3E20100F9FCE1 /* Config.swift */,
 			);
 			path = TideMachine;
 			sourceTree = "<group>";
@@ -391,6 +395,7 @@
 				3B2A534627F1760E0081A752 /* CustomDate.swift in Sources */,
 				3B2A535227F177850081A752 /* WorldTides.swift in Sources */,
 				3B2A535027F177810081A752 /* Tide.swift in Sources */,
+				3BB2DF5A27F3E20100F9FCE1 /* Config.swift in Sources */,
 				3B2A534C27F1777B0081A752 /* BackgroundGradient.swift in Sources */,
 				3B2A534E27F1777E0081A752 /* Gradient.swift in Sources */,
 			);
@@ -405,6 +410,7 @@
 				3B2A534827F177360081A752 /* Persister.swift in Sources */,
 				3B2A534B27F177780081A752 /* TideGradient.swift in Sources */,
 				3B2A534D27F1777B0081A752 /* BackgroundGradient.swift in Sources */,
+				3BB2DF5927F3E20100F9FCE1 /* Config.swift in Sources */,
 				3B87D94C27F0C7F1005AC588 /* ViewController.swift in Sources */,
 				3B2A534527F1760E0081A752 /* CustomDate.swift in Sources */,
 				3B2A534F27F1777F0081A752 /* Gradient.swift in Sources */,

@@ -7,44 +7,45 @@
 
 import Foundation
 
-let Location = (lon: "41.725040", lat: "-71.324036")
-
-public func fetchTides(date: Date, completion: @escaping (PersistData?) -> Void) {
-    let host = "https://www.worldtides.info/api/v3?heights"
-    let date = "today"
+public func fetchTides(date: Date?, completion: @escaping (PersistData?, String?) -> Void) {
+    let host = "https://www.worldtides.info/api/v3"
+    let request = "heights&timezone"
     let days = "7"
     let lat = Location.lat
     let lon = Location.lon
     let key = "02b04d61-c363-4a63-98af-99f544a0521b"
     
-    let url = URL(string: "\(host)&date=\(date)&days=\(days)&lat=\(lat)&lon=\(lon)&key=\(key)")!
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "YYYY-MM-dd"
+    
+    let requestDate = date != nil ? dateFormatter.string(from: date!) : "today"
+    
+    let url = URL(string: "\(host)?\(request)&date=\(requestDate)&days=\(days)&lat=\(lat)&lon=\(lon)&key=\(key)")!
     
     URLSession.shared.dataTask(with: url) {(data, response, error) in
         if (error != nil) {
-            print(error!.localizedDescription)
-            completion(nil)
+            return completion(nil, error!.localizedDescription)
         }
         
         if (data == nil) {
-            print("No data in response!")
-            completion(nil)
+            return completion(nil, "No data in response!")
         }
         
         do{
             let json = try JSONSerialization.jsonObject(
                 with: data!, options: .allowFragments) as! [String:Any]
-            completion(parseTideData(json: json))
+            return completion(parseTideData(json: json), nil)
         } catch {
-            print(error.localizedDescription)
-            completion(nil)
+            return completion(nil, error.localizedDescription)
         }
     }.resume()
 }
     
-func parseTideData(json: [String: Any]?) -> PersistData {
+func parseTideData(json: [String: Any]?) -> PersistData? {
     let heights = json?["heights"] as? [[String: Any]] ?? []
-    let station = json?["station"] as! String
-
+    let station = json?["station"] as? String ?? ""
+    let timezone = json?["timezone"] as? String ?? ""
+    
     let heightData = heights.map({ (height: [String:Any]) -> HeightData in
         let dt = height["dt"] as! Int
         let height = height["height"] as! Double
@@ -52,5 +53,8 @@ func parseTideData(json: [String: Any]?) -> PersistData {
         return HeightData(date: date, height: height)
     })
 
-    return PersistData(tideData: TideData(heights: heightData, station: station))
+    return PersistData(tideData: TideData(name: LocationName,
+                                          heights: heightData,
+                                          station: station,
+                                          timezone: timezone))
 }
