@@ -10,7 +10,7 @@ import Foundation
 let TestDate: String? = nil
 //let TestDate: String? = "2022-02-01T17:00:00"
 
-let TestIntervalSeconds: Int = 1 * 60
+let TestIntervalSeconds: Int = 60
 
 let LocationName = "Conimicut Light, Narragansett Bay, Rhode Island"
 

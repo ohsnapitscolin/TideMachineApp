@@ -20,11 +20,6 @@ public struct HeightData: Codable {
     let height: Double
 }
 
-struct Wobble {
-    var progress: CGFloat
-    var rising: Bool
-}
-
 let MinHeightRatio = 0.25
 let MaxHeightRatio = 1.75
 let TideWidthRatio = 1.25
@@ -33,7 +28,7 @@ class Tide {
     private var data: TideData!
     private var gradient: Gradient!
 
-    private var wobble: Incrementor!
+    public var wobble: Incrementor!
     private var fallback: Incrementor!
     
     private var fallbackPerfect: Double = 0.5

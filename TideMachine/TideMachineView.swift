@@ -25,6 +25,10 @@ public class TideMachineView: ScreenSaverView {
     
     private var isLoading: Bool = false
     private var customDate: CustomDate!
+    
+    private var startDate: Date! = nil
+    private var frames: Double = 0.0
+    private var uuid: Int = 0
 
 //    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 //        debugOutput.append("\(locations)")
@@ -56,11 +60,15 @@ public class TideMachineView: ScreenSaverView {
     public override init?(frame: NSRect, isPreview: Bool) {
         super.init(frame: frame, isPreview: isPreview)
         
+        uuid = Int.random(in: 1..<100000)
+        
         dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss"
  
         let testDate = TestDate != nil ? dateFormatter.date(from: TestDate!) : nil
         customDate = CustomDate(date: testDate)
+        
+        startDate = Date()
         
         persister = Persister()
         
@@ -155,15 +163,23 @@ public class TideMachineView: ScreenSaverView {
     }
     
     // MARK: - Lifecycle
+    var framesPerSecond: Double {
+        get {
+            let seconds = Date().timeIntervalSince(startDate)
+            return frames / seconds
+        }
+    }
     public override func draw(_ rect: NSRect) {
+
+        
         drawBackground(rect: rect)
         
         textView.string = "\(customDate.formattedDate)\n"
-        
+
         for output in debugOutput {
             textView.string += output + "\n"
         }
-        
+
         if (isLoading) { return }
 
         tide.draw(frame: rect)
@@ -172,12 +188,21 @@ public class TideMachineView: ScreenSaverView {
             let arrowText = tide.rising ? "↑" : "↓"
             textView.string += "\(LocationName)\n"
 //            if tide.station != "" { textView.string += "\(tide.station)\n" }
-            textView.string += "\(arrowText) \(tide.currentHeightFeet)ft \(tide.percentage)%"
+            textView.string += "\(arrowText) \(tide.currentHeightFeet)ft \(tide.percentage)%\n"
         }
+        
+        // Frame Rate Testing
+//        textView.string += "\(frames)\n"
+//        textView.string += "\(Date().timeIntervalSince(startDate))\n"
+//        textView.string += "\(framesPerSecond)\n"
+//        textView.string += "\(uuid)\n"
+//        textView.string += "\(tide.wobble.uuid)\n"
     }
     
     public override func animateOneFrame() {
         super.animateOneFrame()
+        
+        frames += 1
         
         // Advance Time
         customDate.tick()

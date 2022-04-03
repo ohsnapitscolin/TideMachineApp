@@ -54,7 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3B2A52CA27F0EBE40081A752 /* TideMachine.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TideMachine.saver; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B2A52CA27F0EBE40081A752 /* Tide Machine.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tide Machine.saver"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B2A52D327F0EC150081A752 /* TideMachineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TideMachineView.swift; sourceTree = "<group>"; };
 		3B2A52D627F0EF8F0081A752 /* Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
 		3B2A52D927F0EFA50081A752 /* BackgroundGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundGradient.swift; sourceTree = "<group>"; };
@@ -177,7 +177,7 @@
 				3B87D94627F0C7F1005AC588 /* TideMachineApp.app */,
 				3B87D95727F0C7F3005AC588 /* TideMachineAppTests.xctest */,
 				3B87D96127F0C7F3005AC588 /* TideMachineAppUITests.xctest */,
-				3B2A52CA27F0EBE40081A752 /* TideMachine.saver */,
+				3B2A52CA27F0EBE40081A752 /* Tide Machine.saver */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -231,9 +231,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		3B2A52C927F0EBE40081A752 /* TideMachine */ = {
+		3B2A52C927F0EBE40081A752 /* Tide Machine */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3B2A52D027F0EBE40081A752 /* Build configuration list for PBXNativeTarget "TideMachine" */;
+			buildConfigurationList = 3B2A52D027F0EBE40081A752 /* Build configuration list for PBXNativeTarget "Tide Machine" */;
 			buildPhases = (
 				3B2A52C527F0EBE40081A752 /* Headers */,
 				3B2A52C627F0EBE40081A752 /* Sources */,
@@ -244,9 +244,9 @@
 			);
 			dependencies = (
 			);
-			name = TideMachine;
+			name = "Tide Machine";
 			productName = TideMachine;
-			productReference = 3B2A52CA27F0EBE40081A752 /* TideMachine.saver */;
+			productReference = 3B2A52CA27F0EBE40081A752 /* Tide Machine.saver */;
 			productType = "com.apple.product-type.bundle";
 		};
 		3B87D94527F0C7F1005AC588 /* TideMachineApp */ = {
@@ -345,7 +345,7 @@
 				3B87D94527F0C7F1005AC588 /* TideMachineApp */,
 				3B87D95627F0C7F3005AC588 /* TideMachineAppTests */,
 				3B87D96027F0C7F3005AC588 /* TideMachineAppUITests */,
-				3B2A52C927F0EBE40081A752 /* TideMachine */,
+				3B2A52C927F0EBE40081A752 /* Tide Machine */,
 			);
 		};
 /* End PBXProject section */
@@ -468,10 +468,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8XS2V4WB4D;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSPrincipalClass = TideMachineView;
@@ -484,6 +485,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = lian.land.TideMachine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -496,10 +498,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8XS2V4WB4D;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSPrincipalClass = TideMachineView;
@@ -512,6 +515,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = lian.land.TideMachine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -569,7 +573,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.2;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -623,7 +627,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.2;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -638,10 +642,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TideMachineApp/TideMachineApp.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8XS2V4WB4D;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -654,6 +659,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = lian.land.TideMachineApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -665,10 +671,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TideMachineApp/TideMachineApp.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8XS2V4WB4D;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -681,6 +688,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = lian.land.TideMachineApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -761,7 +769,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3B2A52D027F0EBE40081A752 /* Build configuration list for PBXNativeTarget "TideMachine" */ = {
+		3B2A52D027F0EBE40081A752 /* Build configuration list for PBXNativeTarget "Tide Machine" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3B2A52D127F0EBE40081A752 /* Debug */,

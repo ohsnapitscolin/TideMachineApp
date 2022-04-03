@@ -36,8 +36,10 @@ class Incrementor {
     public var rising: Bool = true
     public var extremes: (min: Double, max: Double)
     public var increment: Double
+    public var uuid: Int
     
     init(progress: Double, extremes: (min: Double, max: Double), increment: Double) {
+        self.uuid = Int.random(in: 1..<100000)
         self.progress = progress
         self.extremes = extremes
         self.increment = increment
