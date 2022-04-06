@@ -32,6 +32,16 @@ let Locations: [String: (lat: Double, lon: Double)] = [
     "Queensboro Bridge, East River, New York": (lat: 40.7587979, lon: -73.9623427),
     "Belleville, Passaic River, New Jersey": (lat: 40.7474966, lon: -74.2635376),
     "Sawakin, Red Sea, Sudan": (lat: 19.312146, lon: 37.254728),
+    "Kansas City (Landlocked)": (lat: 39.047678, lon: -94.618265)
 ]
 
 let Reset = false
+let UseRealData = true
+let ShowDebugOutput = false
+
+// Tide Display
+let MinHeightRatio = 0.25
+let MaxHeightRatio = 1.75
+let TideWidthRatio = 1.25
+
+var debugOutput: [String] = []

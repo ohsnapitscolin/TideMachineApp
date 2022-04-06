@@ -14,11 +14,9 @@ import ScreenSaver
 var player: AVAudioPlayer!
 
 public class TideMachineView: ScreenSaverView {
+    private var persister: Persister? = nil
 
-    private var persister: Persister! = nil
     private var textView: NSTextView! = nil
-    private var debugOutput: [String] = []
-    private var dateFormatter: DateFormatter! = nil
     
     private var tide: Tide!
     private var skyGraident: Gradient!
@@ -29,6 +27,8 @@ public class TideMachineView: ScreenSaverView {
     private var startDate: Date! = nil
     private var frames: Double = 0.0
     private var uuid: Int = 0
+    
+    private var locationName: String = ""
 
 //    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 //        debugOutput.append("\(locations)")
@@ -55,22 +55,35 @@ public class TideMachineView: ScreenSaverView {
 //                    debugOutput.append("Unknown")
 //         }
 //    }
-    
+   
+    public override convenience init?(frame: NSRect, isPreview: Bool) {
+        self.init(frame: frame,
+                  isPreview: isPreview,
+                  useRealData: UseRealData,
+                  date: TestDate,
+                  locationName: LocationName)
+    }
+        
     // MARK: - Initialization
-    public override init?(frame: NSRect, isPreview: Bool) {
+    public init?(frame: NSRect, isPreview: Bool, useRealData: Bool, date: String?,locationName: String) {
         super.init(frame: frame, isPreview: isPreview)
         
         uuid = Int.random(in: 1..<100000)
         
-        dateFormatter = DateFormatter()
+        self.locationName = locationName;
+        
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss"
  
-        let testDate = TestDate != nil ? dateFormatter.date(from: TestDate!) : nil
+        let testDate = date != nil ? dateFormatter.date(from: date!) : nil
         customDate = CustomDate(date: testDate)
         
         startDate = Date()
-        
-        persister = Persister()
+                
+        if useRealData {
+            debugOutput.append("Reading saved data")
+            persister = Persister()
+        }
         
 //        let locationManager = CLLocationManager()
 //        locationManager.requestWhenInUseAuthorization()
@@ -96,26 +109,37 @@ public class TideMachineView: ScreenSaverView {
         
         // Always reset the persisted data when using test data.
         if (testDate != nil || Reset) {
-            persister.reset()
+            debugOutput.append("Reseting saved data")
+            persister?.reset()
         }
 
-        tide = Tide(data: persister.data.tideData, customDate: customDate)
+        var tideData = TideData(name: "", heights: [], station: "", timezone: "")
+            
+        if persister != nil {
+            tideData = persister!.data.tideData
+            debugOutput.append("Found \(tideData.heights.count) persisted heights")
+        }
+        
+        tide = Tide(data: tideData, customDate: customDate)
+
         skyGraident = BackgroundGradient(customDate: customDate)
         
-        if !isPreview {
+        if !isPreview && useRealData {
             let heights = tide.heights;
             let name = tide.name
 
-            let shouldFetchData = name != LocationName
+            let shouldFetchData = name != locationName
                 || heights.count == 0
                 || heights[heights.count - 1].date < customDate.date
             let shouldRefereshData = !shouldFetchData
                 && heights[heights.count - 1].date < customDate.date
-            
+
             if shouldFetchData {
                 isLoading = true
+                debugOutput.append("Fetching tide data")
                 fetchTides(date: testDate, completion: handleFetchTides)
             } else if shouldRefereshData {
+                debugOutput.append("Refreshing tide data")
                 // Refetch the tide data if the data will soon be stale.
                 fetchTides(date: testDate, completion: handleFetchTides)
             }
@@ -135,13 +159,16 @@ public class TideMachineView: ScreenSaverView {
         isLoading = false
        
         if (error != nil) {
-            debugOutput.append(error!)
+            debugOutput.append("Failed to fetch tide data: \(error!)")
         }
         
-        if data != nil && data!.tideData.heights.count > 0 {
-            persister.write(data: data!)
+        if persister != nil && data != nil && data!.tideData.heights.count > 0 {
+            persister!.write(data: data!)
             customDate.timezone = TimeZone(identifier: data!.tideData.timezone)!
+            debugOutput.append("Successfully fetched \(data!.tideData.heights.count) heights")
             tide = Tide(data: data!.tideData, customDate: customDate)
+        } else {
+            debugOutput.append("No data found when fetching tides")
         }
     }
 
@@ -170,33 +197,33 @@ public class TideMachineView: ScreenSaverView {
         }
     }
     public override func draw(_ rect: NSRect) {
-
-        
         drawBackground(rect: rect)
         
         textView.string = "\(customDate.formattedDate)\n"
+        textView.string += "\(locationName)\n"
+//        textView.string += "\(customDate.metadata.season) \(customDate.metadata.timeOfDay)\n"
 
-        for output in debugOutput {
-            textView.string += output + "\n"
+        if ShowDebugOutput {
+            for output in debugOutput {
+                textView.string += output + "\n"
+            }
+            
+            // Frame Rate Testing
+            let roundedSeconds = round(Date().timeIntervalSince(startDate) * 100) / 100.0
+            let roundedFramesPerSecond = round(framesPerSecond * 100) / 100.0
+    
+            textView.string += "\(roundedFramesPerSecond) \(frames) \(roundedSeconds)\n"
         }
-
+        
         if (isLoading) { return }
 
         tide.draw(frame: rect)
 
         if !tide.isEmpty {
             let arrowText = tide.rising ? "↑" : "↓"
-            textView.string += "\(LocationName)\n"
 //            if tide.station != "" { textView.string += "\(tide.station)\n" }
             textView.string += "\(arrowText) \(tide.currentHeightFeet)ft \(tide.percentage)%\n"
         }
-        
-        // Frame Rate Testing
-//        textView.string += "\(frames)\n"
-//        textView.string += "\(Date().timeIntervalSince(startDate))\n"
-//        textView.string += "\(framesPerSecond)\n"
-//        textView.string += "\(uuid)\n"
-//        textView.string += "\(tide.wobble.uuid)\n"
     }
     
     public override func animateOneFrame() {

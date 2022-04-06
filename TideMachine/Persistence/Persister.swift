@@ -63,7 +63,8 @@ class Persister {
     }
 
     public func reset() {
-        write(data: empty())
+        data = empty()
+        write(data: data)
     }
 
     public func write(data: PersistData) {

@@ -34,18 +34,35 @@ public func fetchTides(date: Date?, completion: @escaping (PersistData?, String?
         do{
             let json = try JSONSerialization.jsonObject(
                 with: data!, options: .allowFragments) as! [String:Any]
-            return completion(parseTideData(json: json), nil)
+            
+            let error = json["error"] as? String
+            if error != nil {
+                return completion(nil, error)
+            } else {
+                return completion(parseTideData(json: json), nil)
+            }
         } catch {
             return completion(nil, error.localizedDescription)
         }
     }.resume()
 }
     
-func parseTideData(json: [String: Any]?) -> PersistData? {
-    let heights = json?["heights"] as? [[String: Any]] ?? []
-    let station = json?["station"] as? String ?? ""
-    let timezone = json?["timezone"] as? String ?? ""
+func parseTideData(json: [String: Any]) -> PersistData? {
+    guard let heights = json["heights"] as? [[String: Any]] else {
+        debugOutput.append("No heights found in response")
+        return nil
+    }
+    guard let timezone = json["timezone"] as? String else {
+        debugOutput.append("No timezone found in response")
+        return nil
+    }
     
+    let station = json["station"] as? String ?? ""
+    
+    if station == "" {
+        debugOutput.append("No station found in response")
+    }
+
     let heightData = heights.map({ (height: [String:Any]) -> HeightData in
         let dt = height["dt"] as! Int
         let height = height["height"] as! Double

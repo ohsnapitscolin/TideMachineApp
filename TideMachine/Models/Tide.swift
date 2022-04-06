@@ -20,10 +20,6 @@ public struct HeightData: Codable {
     let height: Double
 }
 
-let MinHeightRatio = 0.25
-let MaxHeightRatio = 1.75
-let TideWidthRatio = 1.25
-
 class Tide {
     private var data: TideData!
     private var gradient: Gradient!
@@ -46,9 +42,12 @@ class Tide {
                              extremes: (min: -20.0, max: 20.0),
                              increment: 0.5)
         
-        fallback = Incrementor(progress: 0.5,
+        let fallbackIncrement = Double.random(in: 0.001..<0.005)
+        let fallbackOffset = Double.random(in: 0.25..<0.75)
+        
+        fallback = Incrementor(progress: fallbackOffset,
                                extremes: (min: 0.0, max: 1.0),
-                               increment: 0.01)
+                               increment: fallbackIncrement)
         
         gradient = TideGradient(customDate: customDate);
         
