@@ -35,7 +35,7 @@ let Locations: [String: (lat: Double, lon: Double)] = [
     "Kansas City (Landlocked)": (lat: 39.047678, lon: -94.618265)
 ]
 
-let Reset = false
+let ResetData = false
 let UseRealData = true
 let ShowDebugOutput = false
 

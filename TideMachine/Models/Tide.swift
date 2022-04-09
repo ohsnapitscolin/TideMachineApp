@@ -30,7 +30,7 @@ class Tide {
     private var fallbackPerfect: Double = 0.5
     private var heightPercent: Double = 0.5
     
-    public var rising: Bool =  true
+    private var _rising: Bool =  true
     public var extremes: (min: Double, max: Double)
     public var currentHeight: Double = 0.0
 
@@ -42,11 +42,12 @@ class Tide {
                              extremes: (min: -20.0, max: 20.0),
                              increment: 0.5)
         
-        let fallbackIncrement = Double.random(in: 0.001..<0.005)
+        let fallbackIncrement = 1.0 / 1000000
         let fallbackOffset = Double.random(in: 0.25..<0.75)
+        let fallbackExtreme = Double.random(in: 0.5..<2.5)
         
         fallback = Incrementor(progress: fallbackOffset,
-                               extremes: (min: 0.0, max: 1.0),
+                               extremes: (min: fallbackExtreme * -1, max: fallbackExtreme),
                                increment: fallbackIncrement)
         
         gradient = TideGradient(customDate: customDate);
@@ -82,7 +83,7 @@ class Tide {
     
     func getHeightPercent(date: Date) -> Double {
         guard let closestHeights = closestHeights(date: date) else {
-            return fallback.value
+            return fallback.progress
         }
 
         let currentMs = date.timeIntervalSince1970 * 1000
@@ -97,7 +98,7 @@ class Tide {
         let heightDiff = closestHeights.prev.height - closestHeights.next.height;
         let heightDelta = heightDiff * progress;
         
-        rising = heightDelta < 0
+        _rising = heightDelta < 0
         currentHeight = closestHeights.prev.height + heightDelta * -1;
 
         return getProgress(
@@ -106,6 +107,7 @@ class Tide {
             extremes: (min: extremes.min, max: extremes.max))
     }
    
+     
     var name: String {
         get { data.name }
     }
@@ -122,12 +124,25 @@ class Tide {
         get { heights.count == 0 }
     }
     
+    var rising: Bool {
+        get {
+            let rising = isEmpty ? fallback.rising : _rising
+            return rising
+        }
+    }
+    
     var currentHeightFeet: Double {
-        get { round(currentHeight * 3.28084 * 1000) / 1000.0 }
+        get {
+            let height = isEmpty ? fallback.value : currentHeight * 3.28084
+            return round(height * 1000) / 1000.0
+        }
     }
     
     var percentage: Double {
-        get { round(heightPercent * 100 * 100) / 100.0 }
+        get {
+            let progress = isEmpty ? fallback.progress : heightPercent
+            return round(progress * 100 * 100) / 100.0
+        }
     }
     
     var station: String {

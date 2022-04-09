@@ -8,7 +8,8 @@
 import Foundation
 
 let BundleIdentifier = "lian.land.TideMachine"
-let FileName = "lian.land.TideMachine_v1"
+let FileName = "lian.land.TideMachine"
+let FileVersion = "v1"
 
 public struct PersistData: Codable {
     var tideData: TideData
@@ -26,9 +27,15 @@ class Persister {
     private var fileUrl: URL! = nil
     private var bundle: Bundle! = nil
     
-    init() {
-        fileUrl = getDocumentsDirectory().appendingPathComponent("\(FileName).txt")
+    init(locationName: String) {
+        let trimmedName = locationName.replacingOccurrences(of: "[\\s|,]",
+                                                            with: "",
+                                                            options: .regularExpression,
+                                                            range: nil)
+        fileUrl = getDocumentsDirectory().appendingPathComponent("\(FileName)_\(trimmedName)_\(FileVersion).txt")
         bundle = Bundle.init(identifier: BundleIdentifier) ?? Bundle.main
+        
+        debugOutput.append("Persister file: \(fileUrl.absoluteString)")
 
         if (!FileManager.default.fileExists(atPath: fileUrl.path)) {
             reset()

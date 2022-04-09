@@ -5,13 +5,10 @@
 //  Created by Colin Dunn on 3/18/22.
 //
 
-import AVFoundation
-import CoreLocation
-import MapKit
 import Foundation
 import ScreenSaver
 
-var player: AVAudioPlayer!
+// var player: AVAudioPlayer!
 
 public class TideMachineView: ScreenSaverView {
     private var persister: Persister? = nil
@@ -29,32 +26,6 @@ public class TideMachineView: ScreenSaverView {
     private var uuid: Int = 0
     
     private var locationName: String = ""
-
-//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        debugOutput.append("\(locations)")
-//         //This is where you can update the MapView when the computer is moved (locations.last!.coordinate)
-//    }
-//
-//    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-//        debugOutput.append(error.localizedDescription)
-//    }
-//
-//    func locationManager(_ manager: CLLocationManager,
-//                       didChangeAuthorization status: CLAuthorizationStatus) {
-//             print("location manager auth status changed to: " )
-//             switch status {
-//                 case .restricted:
-//                    debugOutput.append("restricted")
-//                 case .denied:
-//                    debugOutput.append("denied")
-//                 case .authorized:
-//                    debugOutput.append("authorized")
-//                 case .notDetermined:
-//                    debugOutput.append("not yet determined")
-//                 default:
-//                    debugOutput.append("Unknown")
-//         }
-//    }
    
     public override convenience init?(frame: NSRect, isPreview: Bool) {
         self.init(frame: frame,
@@ -71,10 +42,11 @@ public class TideMachineView: ScreenSaverView {
         uuid = Int.random(in: 1..<100000)
         
         self.locationName = locationName;
+
+        debugOutput.append("Running as a preview: \(isPreview)")  
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss"
- 
         let testDate = date != nil ? dateFormatter.date(from: date!) : nil
         customDate = CustomDate(date: testDate)
         
@@ -82,17 +54,8 @@ public class TideMachineView: ScreenSaverView {
                 
         if useRealData {
             debugOutput.append("Reading saved data")
-            persister = Persister()
+            persister = Persister(locationName: locationName)
         }
-        
-//        let locationManager = CLLocationManager()
-//        locationManager.requestWhenInUseAuthorization()
-//
-//        if CLLocationManager.locationServicesEnabled() {
-//            locationManager.delegate = self
-//            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-//            locationManager.requestLocation()
-//        }
 
         let marginX = 15.0;
         let marginY = 20.0
@@ -107,8 +70,8 @@ public class TideMachineView: ScreenSaverView {
         
         self.addSubview(textView)
         
-        // Always reset the persisted data when using test data.
-        if (testDate != nil || Reset) {
+        // Always reset the persisted data when using a test date.
+        if (testDate != nil || ResetData) {
             debugOutput.append("Reseting saved data")
             persister?.reset()
         }
@@ -121,10 +84,9 @@ public class TideMachineView: ScreenSaverView {
         }
         
         tide = Tide(data: tideData, customDate: customDate)
-
         skyGraident = BackgroundGradient(customDate: customDate)
         
-        if !isPreview && useRealData {
+        if useRealData {
             let heights = tide.heights;
             let name = tide.name
 
@@ -143,7 +105,10 @@ public class TideMachineView: ScreenSaverView {
                 // Refetch the tide data if the data will soon be stale.
                 fetchTides(date: testDate, completion: handleFetchTides)
             }
-
+        }
+        
+//        // Sound
+//        if !isPreview {
 //            if let url = bundle.url(forResource: "birds", withExtension: "m4a") {
 //                do {
 //                    player = try AVAudioPlayer(contentsOf: url)
@@ -152,7 +117,7 @@ public class TideMachineView: ScreenSaverView {
 //                    player.play()
 //                } catch {}
 //            }
-        }
+//        }
     }
     
     func handleFetchTides(data: PersistData?, error: String?) {
@@ -189,21 +154,24 @@ public class TideMachineView: ScreenSaverView {
         }
     }
     
-    // MARK: - Lifecycle
     var framesPerSecond: Double {
         get {
             let seconds = Date().timeIntervalSince(startDate)
             return frames / seconds
         }
     }
+    
+    // MARK: - Lifecycle
     public override func draw(_ rect: NSRect) {
         drawBackground(rect: rect)
         
         textView.string = "\(customDate.formattedDate)\n"
         textView.string += "\(locationName)\n"
-//        textView.string += "\(customDate.metadata.season) \(customDate.metadata.timeOfDay)\n"
 
         if ShowDebugOutput {
+            // Season & Time of Day Testing
+            textView.string += "\(customDate.metadata.season) \(customDate.metadata.timeOfDay)\n"
+            
             for output in debugOutput {
                 textView.string += output + "\n"
             }
@@ -211,7 +179,6 @@ public class TideMachineView: ScreenSaverView {
             // Frame Rate Testing
             let roundedSeconds = round(Date().timeIntervalSince(startDate) * 100) / 100.0
             let roundedFramesPerSecond = round(framesPerSecond * 100) / 100.0
-    
             textView.string += "\(roundedFramesPerSecond) \(frames) \(roundedSeconds)\n"
         }
         
@@ -219,9 +186,12 @@ public class TideMachineView: ScreenSaverView {
 
         tide.draw(frame: rect)
 
+        if ShowDebugOutput && tide.station != "" {
+            textView.string += "\(tide.station)\n"
+        }
+
         if !tide.isEmpty {
             let arrowText = tide.rising ? "↑" : "↓"
-//            if tide.station != "" { textView.string += "\(tide.station)\n" }
             textView.string += "\(arrowText) \(tide.currentHeightFeet)ft \(tide.percentage)%\n"
         }
     }
